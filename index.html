@@ -1,1 +1,857 @@
-<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Saramago Work</title><meta name="robots" content="noindex"><body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#07080a;color:#f4f1e8;font:600 clamp(1.2rem,3vw,2rem)/1 -apple-system,Helvetica,Arial,sans-serif">Saramago Work</body>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saramago Work · Vídeos verticais para Instagram</title>
+<meta name="description" content="Pode me chamar de Saramago. Eu gravo e edito vídeos na vertical para o Instagram, do roteiro à postagem. Dourados, MS.">
+<meta name="theme-color" content="#f5f5f5">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Saramago Work · Vídeos verticais para Instagram">
+<meta property="og:description" content="Eu gravo e edito vídeos na vertical para o Instagram, do roteiro à postagem.">
+<meta property="og:url" content="https://saramagowork.github.io/">
+<meta property="og:image" content="https://saramagowork.github.io/assets/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23121212'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23f11216'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400..500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400..500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400..500&display=swap"></noscript>
+<link rel="preload" as="image" href="assets/videos/take-01.webp" fetchpriority="high">
+<style>
+/* ==========================================================================
+   Saramago Work
+   Sistema visual montado com o código das referências marcadas com
+   SARAMAGO WORK no Notion (Refero Styles): Flim, VEED, Photographer,
+   Structured, Squarespace, Apple (España), Sigmaphoto, Hims App e Tedy.
+   O comentário de cada token e componente indica de onde ele veio.
+   ========================================================================== */
+
+:root {
+  /* Cores */
+  --color-ink: #141414;          /* Flim · Ink */
+  --color-canvas: #f5f5f5;       /* Flim · Canvas */
+  --color-hairline: #d9d9d9;     /* Flim · Hairline */
+  --color-paper: #ffffff;        /* Flim · Paper */
+  --color-onyx: #121212;         /* VEED · Onyx */
+  --color-carbon: #0c0a09;       /* VEED · Carbon */
+  --color-charcoal: #323232;     /* VEED · Charcoal */
+  --color-fog: #e6e6e7;          /* VEED · Fog */
+  --color-lime-spark: #96ff1a;   /* VEED · Lime Spark */
+  --color-forest-ink: #083300;   /* VEED · Forest Ink */
+  --color-spring-wash: #d6ffa6;  /* VEED · Spring Wash */
+  --color-mint-mist: #e6ffc8;    /* VEED · Mint Mist */
+  --color-signal-red: #f11216;   /* Photographer · Signal Red */
+  --color-ash-gray: #707070;     /* Sigmaphoto · Ash Gray */
+  --color-ash: #898989;          /* Squarespace · Ash */
+  --color-obsidian: #000000;     /* Squarespace · Obsidian / Structured · Ink */
+
+  /* Tipografia: substitutos gratuitos indicados nas próprias referências */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;   /* Photographer, Sigmaphoto, Apple, VEED, Squarespace, Structured, Hims, Tedy */
+  --font-serif: "DM Serif Display", ui-serif, Georgia, "Times New Roman", serif;                    /* VEED · substituto do PPEditorialNew */
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;           /* Flim · substituto do PP Neue Montreal Mono */
+
+  --text-caption: 12px;          /* Flim · caption */
+  --tracking-caption: 0.72px;    /* Flim · 0.06em */
+  --text-body-sm: 16px;          /* VEED · body */
+  --text-body: 17px;             /* Apple · body */
+  --leading-body: 1.47;          /* Apple · body */
+  --tracking-body: -0.272px;     /* Apple · body */
+  --text-subheading: 21px;       /* Apple · subheading */
+  --text-heading-sm: 28px;       /* Apple · heading-sm */
+  --text-heading: clamp(40px, 4.8vw, 56px);   /* VEED · heading 44px → Tedy · heading 56px */
+  --text-display: clamp(48px, 6.4vw, 88px);   /* Sigmaphoto · display 88px */
+  --text-wordmark: 17.6vw;       /* Photographer · display (até 320px) */
+
+  /* Formas */
+  --radius-card: 16px;           /* Flim · images / VEED · cards */
+  --radius-feature: 28px;        /* Apple · cards */
+  --radius-button: 10px;         /* VEED · buttons */
+  --radius-chip: 4px;            /* VEED · Category Tag Chip */
+  --radius-badge: 32px;          /* Tedy · badges */
+  --radius-pill: 28.8px;         /* Structured · buttons */
+  --radius-nav: 52px;            /* Hims · nav */
+
+  /* Layout */
+  --page-max-width: 1200px;      /* VEED · Tedy · Hims · Squarespace */
+  --gutter: clamp(16px, 4vw, 40px);
+  --section-pad: clamp(72px, 10vw, 120px);    /* Squarespace · Apple · section gap 80–120px */
+  --grid-size: 40px;             /* Flim · Grid Background Pattern */
+
+  /* Sombras */
+  --shadow-nav: rgba(0, 0, 0, 0.06) 0px 8px 30px 0px;     /* Hims · nav */
+  --shadow-phone: rgba(0, 0, 0, 0.25) 0px 9px 46px 0px;   /* Hims · phone mockup */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+}
+img, video { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+a { color: inherit; }
+h1, h2, h3, p, figure { margin: 0; }
+[id] { scroll-margin-top: 96px; }
+:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }
+.band-dark :focus-visible, .lightbox :focus-visible { outline-color: var(--color-lime-spark); }
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--page-max-width) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 200;
+  padding: 10px 16px;
+  background: var(--color-ink); color: var(--color-paper);
+  border-radius: var(--radius-button);
+}
+.skip-link:focus { top: 16px; }
+
+/* Flim · Eyebrow Label / Ghost Navigation Link: mono, caixa alta, 0.06em */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: 1;
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+}
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--color-charcoal); }
+.band-dark .eyebrow { color: var(--color-ash); }
+
+/* Photographer · Signal Red como luz de gravação */
+.rec-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--color-signal-red); }
+.rec-dot--live { animation: rec 1.6s steps(1, end) infinite; }
+@keyframes rec { 50% { opacity: 0.2; } }
+
+/* VEED · Hero CTA Pair (Lime + Ghost) */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px;
+  padding: 14px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.07px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn svg { width: 10px; height: 12px; }
+.btn--lime { background: var(--color-lime-spark); border-color: var(--color-forest-ink); color: var(--color-forest-ink); }
+.btn--lime:hover { background: var(--color-spring-wash); }
+.btn--ghost { border-color: var(--color-hairline); color: var(--color-charcoal); }
+.btn--ghost:hover { background: var(--color-paper); }
+.band-dark .btn--ghost { border-color: rgba(255, 255, 255, 0.24); color: var(--color-paper); }
+.band-dark .btn--ghost:hover { background: rgba(255, 255, 255, 0.08); }
+
+/* Hims · Floating Nav Bar */
+.nav {
+  position: fixed; top: 16px; left: 50%; z-index: 50;
+  transform: translateX(-50%);
+  width: min(calc(100% - var(--gutter) * 2), var(--page-max-width));
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 8px 8px 8px 22px;
+  background: var(--color-paper);
+  border-radius: var(--radius-nav);
+  box-shadow: var(--shadow-nav);
+}
+.nav__brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 15px; font-weight: 600; letter-spacing: -0.15px;
+  text-decoration: none; white-space: nowrap;
+}
+.nav__links { display: flex; gap: 28px; margin: 0; padding: 0; list-style: none; }
+.nav__links a { display: block; padding: 6px 0; text-decoration: none; }
+.nav__links a:hover { text-decoration: underline; text-underline-offset: 5px; }
+
+/* Structured · Pill Action Button */
+.btn-pill {
+  display: inline-flex; align-items: center;
+  min-height: 40px;
+  padding: 9px 18px;
+  background: var(--color-obsidian); color: var(--color-paper);
+  border-radius: var(--radius-pill);
+  font-size: 13px; line-height: 1;
+  text-decoration: none; white-space: nowrap;
+}
+.btn-pill:hover { background: var(--color-charcoal); }
+
+/* ---------- Hero ---------- */
+
+/* Flim · Canvas + Grid Background Pattern */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-canvas);
+  background-image:
+    linear-gradient(var(--color-hairline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-hairline) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: center -1px;
+}
+.hero__inner {
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+  min-height: 100svh;
+  padding-top: 128px;
+  padding-bottom: calc(var(--text-wordmark) * 0.8);
+}
+/* VEED · Hero Headline Block (serif editorial, tracking negativo) */
+.hero__title {
+  margin: 24px 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-display);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+.hero__title em { font-style: italic; }
+.hero__lead { max-width: 30em; margin-bottom: 32px; color: var(--color-charcoal); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Flim · Image Thumbnail Card, espalhados como polaroids na mesa */
+.hero__reels { position: relative; height: clamp(420px, 62vh, 620px); }
+.reel {
+  --x: 0px; --y: 0px; --r: 0deg;
+  position: absolute;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--color-onyx);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-card);
+  transform: translate(var(--x), var(--y)) rotate(var(--r));
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.reel video { width: 100%; height: 100%; object-fit: cover; }
+.reel:nth-child(1) { --r: -3deg; height: 66%; left: 0; top: 18%; animation-delay: 0.08s; }
+.reel:nth-child(2) { --x: -50%; --r: 1.5deg; height: 86%; left: 50%; top: 0; z-index: 1; }
+.reel:nth-child(3) { --r: 4deg; height: 60%; right: 0; top: 30%; animation-delay: 0.16s; }
+.reel:nth-child(3) .chip { left: auto; right: 10px; }
+@keyframes rise { from { opacity: 0; transform: translate(var(--x), calc(var(--y) + 32px)) rotate(var(--r)); } }
+.hero__spec { position: absolute; top: -32px; right: 0; color: var(--color-ash-gray); }
+
+/* VEED · Category Tag Chip */
+.chip {
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 8px;
+  border-radius: var(--radius-chip);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-paper);
+  font-size: 12px; font-weight: 500; line-height: 1.4;
+}
+
+/* Photographer · Wordmark gigante / Structured · cortado nas bordas da tela */
+.wordmark {
+  position: absolute; left: 50%; bottom: 0; z-index: 1;
+  transform: translate(-50%, 16%);
+  font-size: var(--text-wordmark);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- Seções ---------- */
+
+.section { padding-block: var(--section-pad); }
+.section-label { display: block; margin-bottom: 20px; color: var(--color-ash-gray); }
+.band-dark { background: var(--color-onyx); color: var(--color-paper); }
+.band-dark .section-label { color: var(--color-ash); }
+.section-head { max-width: 720px; margin-bottom: 48px; }
+
+/* VEED · Dark Feature Section Header / Sigmaphoto · heading */
+.h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-heading);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+/* Sigmaphoto · Centered Editorial Text Block */
+.intro { background: var(--color-paper); text-align: center; }
+.intro .h2 { max-width: 720px; margin-inline: auto; line-height: 1.14; }
+/* Flim · Highlighted Heading, com o Spring Wash do VEED */
+.mark {
+  padding: 0 0.16em;
+  background: var(--color-spring-wash);
+  border-radius: 25px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.intro__body {
+  max-width: 600px;
+  margin: 28px auto 32px;
+  color: var(--color-ash-gray);
+  font-size: var(--text-body-sm);
+  line-height: 1.54;
+  letter-spacing: 0;
+}
+/* Sigmaphoto · Text-Only Link CTA */
+.text-link { display: inline-block; padding: 6px 0; text-decoration: none; }
+.text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+
+/* Vídeos */
+.videos__head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
+.videos__sub { margin-top: 16px; color: var(--color-ash); font-size: var(--text-body-sm); letter-spacing: 0; }
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0; padding: 0;
+  list-style: none;
+}
+
+/* VEED · Use Case Category Card + play verde de 32px */
+.video-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-card);
+  background: #1b1b1b;
+  color: var(--color-paper);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.video-card video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.video-card:hover video { transform: scale(1.04); }
+.video-card::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 26%, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 0.62) 100%);
+  pointer-events: none;
+}
+.video-card__meta { position: absolute; left: 12px; right: 56px; bottom: 14px; z-index: 2; display: grid; gap: 6px; }
+.video-card__title { font-size: 14px; font-weight: 500; line-height: 1.25; letter-spacing: -0.07px; }
+.video-card__info { color: rgba(255, 255, 255, 0.72); font-size: 11px; }
+.play {
+  position: absolute; right: 12px; bottom: 12px; z-index: 2;
+  display: grid; place-items: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--color-lime-spark);
+  color: var(--color-carbon);
+  transition: transform 0.2s ease;
+}
+.play svg { width: 10px; height: 12px; margin-left: 2px; }
+.video-card:hover .play { transform: scale(1.12); }
+
+/* Squarespace · Stat Display Block */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 72px 0 0; padding: 48px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  list-style: none;
+  text-align: center;
+}
+.stat__value { display: block; font-size: clamp(56px, 8vw, 96px); font-weight: 300; line-height: 0.93; letter-spacing: -0.06em; }
+.stat__label { display: block; margin-top: 16px; color: var(--color-ash); font-size: 12px; line-height: 1.4; letter-spacing: 0.24px; text-transform: uppercase; }
+
+/* Apple · Band Section + Feature Card */
+.services { background: var(--color-canvas); }
+.service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.service {
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 28px;
+  background: var(--color-paper);
+  border-radius: var(--radius-feature);
+}
+.service--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+  padding: clamp(28px, 4vw, 56px);
+}
+.service__num { color: var(--color-ash-gray); }
+.service__title { font-size: var(--text-heading-sm); font-weight: 600; line-height: 1.14; letter-spacing: -0.252px; }
+.service--featured .service__title { margin-top: 16px; font-size: clamp(32px, 3.6vw, 39px); line-height: 1.07; letter-spacing: -0.351px; }
+.service__body { color: var(--color-ash-gray); }
+.service--featured .service__body { max-width: 30em; margin-top: 16px; }
+/* Tedy · Pill Badge */
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; }
+.badge {
+  padding: 8px 14px;
+  background: var(--color-mint-mist);
+  box-shadow: var(--color-spring-wash) 0 0 0 1px;
+  border-radius: var(--radius-badge);
+  font-size: 14px; font-weight: 500; line-height: 1; letter-spacing: -0.07px;
+}
+/* Hims · Phone Mockup (sombra) */
+.service__media {
+  justify-self: center;
+  width: min(100%, 300px);
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: var(--color-onyx);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-phone);
+}
+.service__media video { width: 100%; height: 100%; object-fit: cover; }
+
+/* Processo: linhas finas do Photographer, numeração mono do Flim */
+.process { background: var(--color-paper); }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.step { padding-top: 20px; border-top: 1px solid var(--color-ink); }
+.step__num { color: var(--color-ash-gray); }
+.step__title { margin: 14px 0 8px; font-size: var(--text-subheading); font-weight: 500; line-height: 1.33; letter-spacing: -0.21px; }
+.step__body { color: var(--color-ash-gray); font-size: var(--text-body-sm); line-height: 1.5; letter-spacing: 0; }
+
+/* Structured · Ink Room + Sigmaphoto · display */
+.contact { padding-block: clamp(96px, 14vw, 168px); text-align: center; }
+.contact__title {
+  margin: 24px 0 calc(24px + 0.12em);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(64px, 12vw, 160px);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+}
+.contact__body { max-width: 30em; margin: 0 auto 36px; color: var(--color-ash); }
+.contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.footer { border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding-block: 24px; color: var(--color-ash); }
+.footer a { text-decoration: none; }
+.footer a:hover { color: var(--color-paper); }
+
+/* ---------- Tela cheia ---------- */
+
+.lightbox {
+  position: fixed; inset: 0; z-index: 100;
+  display: grid; place-items: center;
+  padding: 24px;
+  background: rgba(12, 10, 9, 0.94);
+}
+.lightbox[hidden] { display: none; }
+.lightbox__stage { position: relative; height: min(84svh, 880px, calc((100vw - 48px) * 16 / 9)); aspect-ratio: 9 / 16; }
+.lightbox__video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  background: var(--color-obsidian);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-phone);
+}
+.lightbox__caption { position: absolute; top: calc(100% + 14px); left: 0; right: 0; display: flex; justify-content: space-between; gap: 16px; color: var(--color-ash); }
+/* VEED · setas do carrossel (círculo branco com borda Fog) */
+.icon-btn {
+  position: absolute;
+  display: grid; place-items: center;
+  width: 44px; height: 44px;
+  padding: 0;
+  background: var(--color-paper);
+  color: var(--color-carbon);
+  border: 1px solid var(--color-fog);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.icon-btn svg { width: 16px; height: 16px; }
+.lightbox__close { top: 16px; right: 16px; }
+.lightbox__prev, .lightbox__next { top: 50%; transform: translateY(-50%); }
+.lightbox__prev { left: 16px; }
+.lightbox__next { right: 16px; }
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1024px) {
+  .video-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .hero__inner { grid-template-columns: 1fr; min-height: 0; padding-top: 112px; }
+  .hero__reels { height: min(112vw, 540px); }
+  .hero__spec { display: none; }
+  .service-grid, .service--featured { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
+}
+@media (max-width: 760px) {
+  .nav__links { display: none; }
+}
+@media (max-width: 640px) {
+  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .video-card__meta { left: 10px; right: 48px; bottom: 12px; }
+  .play { right: 10px; bottom: 10px; }
+  .stats { grid-template-columns: 1fr; gap: 40px; }
+  .steps { grid-template-columns: 1fr; }
+  .footer__inner { justify-content: center; text-align: center; }
+}
+@media (max-width: 480px) {
+  .hero__actions .btn { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rec-dot--live, .reel { animation: none; }
+  .video-card video, .play { transition: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav">
+  <a class="nav__brand" href="#topo"><span class="rec-dot" aria-hidden="true"></span>Saramago Work</a>
+  <nav aria-label="Seções">
+    <ul class="nav__links mono">
+      <li><a href="#videos">Vídeos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#processo">Processo</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+  <a class="btn-pill" href="https://wa.me/5567992129678" target="_blank" rel="noopener" data-whatsapp>WhatsApp</a>
+</header>
+
+<main id="conteudo">
+  <section class="hero" id="topo" aria-labelledby="hero-title">
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <p class="mono eyebrow"><span class="rec-dot rec-dot--live" aria-hidden="true"></span>Rec · Vídeos verticais para Instagram</p>
+        <h1 class="hero__title" id="hero-title">Pode me chamar de <em>Saramago</em>.</h1>
+        <p class="hero__lead">Eu gravo e edito vídeos na vertical para o Instagram. É o que eu mais faço: do roteiro à postagem, tudo pensado para a tela do celular.</p>
+        <div class="hero__actions">
+          <a class="btn btn--lime" href="#videos"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg>Ver os vídeos</a>
+          <a class="btn btn--ghost" href="https://wa.me/5567992129678" target="_blank" rel="noopener" data-whatsapp>Chamar no WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="hero__reels" aria-hidden="true">
+        <figure class="reel">
+          <video muted loop playsinline preload="none" poster="assets/videos/take-02.webp" data-src="assets/videos/take-02.mp4"></video>
+          <span class="chip"><span class="rec-dot"></span>REC</span>
+        </figure>
+        <figure class="reel">
+          <video muted loop playsinline preload="none" poster="assets/videos/take-01.webp" data-src="assets/videos/take-01.mp4"></video>
+          <span class="chip mono">9:16</span>
+        </figure>
+        <figure class="reel">
+          <video muted loop playsinline preload="none" poster="assets/videos/take-03.webp" data-src="assets/videos/take-03.mp4"></video>
+          <span class="chip mono">4K</span>
+        </figure>
+        <p class="hero__spec mono">3840×2160 · 23,976 fps · 9:16</p>
+      </div>
+    </div>
+    <p class="wordmark" aria-hidden="true">SARAMAGO</p>
+  </section>
+
+  <section class="section intro" aria-labelledby="intro-title">
+    <div class="wrap">
+      <p class="section-label mono">Feito para o feed</p>
+      <h2 class="h2" id="intro-title">Seu cliente assiste no celular. <span class="mark">Na vertical.</span></h2>
+      <p class="intro__body">Cada vídeo sai pensado para a tela do Instagram: enquadramento 9:16, luz de cinema e edição no ritmo de quem está rolando o feed. Da ideia à postagem, eu cuido de tudo.</p>
+      <a class="text-link mono" href="#videos">Ver os vídeos →</a>
+    </div>
+  </section>
+
+  <section class="section band-dark" id="videos" aria-labelledby="videos-title">
+    <div class="wrap">
+      <header class="videos__head">
+        <p class="section-label mono">Portfólio · 9:16</p>
+        <h2 class="h2" id="videos-title">Vídeos na vertical</h2>
+        <p class="videos__sub">Toque em um vídeo para assistir em tela cheia.</p>
+      </header>
+
+      <ul class="video-grid">
+        <li>
+          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Torre iluminada">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-01.webp" data-src="assets/videos/take-01.mp4" data-full="assets/videos/take-01-hd.mp4"></video>
+            <span class="chip mono">Take 01</span>
+            <span class="video-card__meta"><span class="video-card__title">Torre iluminada</span><span class="video-card__info mono">00:06 · 4K</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
+          </button>
+        </li>
+        <li>
+          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Luz de cena">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-02.webp" data-src="assets/videos/take-02.mp4" data-full="assets/videos/take-02-hd.mp4"></video>
+            <span class="chip mono">Take 02</span>
+            <span class="video-card__meta"><span class="video-card__title">Luz de cena</span><span class="video-card__info mono">00:06 · 4K</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
+          </button>
+        </li>
+        <li>
+          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Detalhe nas mãos">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-03.webp" data-src="assets/videos/take-03.mp4" data-full="assets/videos/take-03-hd.mp4"></video>
+            <span class="chip mono">Take 03</span>
+            <span class="video-card__meta"><span class="video-card__title">Detalhe nas mãos</span><span class="video-card__info mono">00:06 · 4K</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
+          </button>
+        </li>
+        <li>
+          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Mãos na terra">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-04.webp" data-src="assets/videos/take-04.mp4" data-full="assets/videos/take-04-hd.mp4"></video>
+            <span class="chip mono">Take 04</span>
+            <span class="video-card__meta"><span class="video-card__title">Mãos na terra</span><span class="video-card__info mono">00:06 · 4K</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
+          </button>
+        </li>
+        <li>
+          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Terra e mudas">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-05.webp" data-src="assets/videos/take-05.mp4" data-full="assets/videos/take-05-hd.mp4"></video>
+            <span class="chip mono">Take 05</span>
+            <span class="video-card__meta"><span class="video-card__title">Terra e mudas</span><span class="video-card__info mono">00:06 · 4K</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
+          </button>
+        </li>
+        <li>
+          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Plantio no vaso">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-06.webp" data-src="assets/videos/take-06.mp4" data-full="assets/videos/take-06-hd.mp4"></video>
+            <span class="chip mono">Take 06</span>
+            <span class="video-card__meta"><span class="video-card__title">Plantio no vaso</span><span class="video-card__info mono">00:06 · 4K</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
+          </button>
+        </li>
+        <li>
+          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Textura">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-07.webp" data-src="assets/videos/take-07.mp4" data-full="assets/videos/take-07-hd.mp4"></video>
+            <span class="chip mono">Take 07</span>
+            <span class="video-card__meta"><span class="video-card__title">Textura</span><span class="video-card__info mono">00:06 · 4K</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
+          </button>
+        </li>
+        <li>
+          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Horta vertical">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-08.webp" data-src="assets/videos/take-08.mp4" data-full="assets/videos/take-08-hd.mp4"></video>
+            <span class="chip mono">Take 08</span>
+            <span class="video-card__meta"><span class="video-card__title">Horta vertical</span><span class="video-card__info mono">00:06 · 4K</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
+          </button>
+        </li>
+      </ul>
+
+      <ul class="stats">
+        <li><span class="stat__value">4K</span><span class="stat__label">Captação</span></li>
+        <li><span class="stat__value">23,976</span><span class="stat__label">Quadros por segundo</span></li>
+        <li><span class="stat__value">9:16</span><span class="stat__label">Formato do feed</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section services" id="servicos" aria-labelledby="servicos-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="section-label mono">Serviços</p>
+        <h2 class="h2" id="servicos-title">Do roteiro ao post</h2>
+      </header>
+
+      <div class="service-grid">
+        <article class="service service--featured">
+          <div>
+            <p class="service__num mono">01 · O que eu mais faço</p>
+            <h3 class="service__title">Reels e vídeos verticais</h3>
+            <p class="service__body">Roteiro, captação e edição de vídeos 9:16 para o Instagram, com a cara da sua marca e o ritmo do feed.</p>
+            <ul class="badges">
+              <li class="badge">Roteiro</li>
+              <li class="badge">Captação</li>
+              <li class="badge">Edição</li>
+            </ul>
+          </div>
+          <div class="service__media">
+            <video muted loop playsinline preload="none" poster="assets/videos/take-07.webp" data-src="assets/videos/take-07.mp4" aria-hidden="true"></video>
+          </div>
+        </article>
+        <article class="service">
+          <p class="service__num mono">02</p>
+          <h3 class="service__title">Conteúdo do mês</h3>
+          <p class="service__body">Um calendário de vídeos pensado dia a dia, para a sua marca aparecer com constância.</p>
+        </article>
+        <article class="service">
+          <p class="service__num mono">03</p>
+          <h3 class="service__title">Anúncios</h3>
+          <p class="service__body">Eu monto e subo os anúncios com os seus vídeos. A verba de mídia fica à parte.</p>
+        </article>
+        <article class="service">
+          <p class="service__num mono">04</p>
+          <h3 class="service__title">Sites</h3>
+          <p class="service__body">Uma página rápida para receber quem chega pelo Google e pelo Instagram.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process" id="processo" aria-labelledby="processo-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="section-label mono">Processo</p>
+        <h2 class="h2" id="processo-title">Como eu trabalho</h2>
+      </header>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__num mono">01</span>
+          <h3 class="step__title">Roteiro</h3>
+          <p class="step__body">Ideia, gancho e sequência de cenas antes de ligar a câmera.</p>
+        </li>
+        <li class="step">
+          <span class="step__num mono">02</span>
+          <h3 class="step__title">Captação</h3>
+          <p class="step__body">Câmera, luz e áudio no lugar, já pensando no enquadramento vertical.</p>
+        </li>
+        <li class="step">
+          <span class="step__num mono">03</span>
+          <h3 class="step__title">Edição</h3>
+          <p class="step__body">Cortes no ritmo do feed, cor e acabamento.</p>
+        </li>
+        <li class="step">
+          <span class="step__num mono">04</span>
+          <h3 class="step__title">Entrega</h3>
+          <p class="step__body">Vídeo pronto para postar, com capa.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band-dark" id="contato" aria-labelledby="contato-title">
+    <div class="wrap contact">
+      <p class="mono eyebrow"><span class="rec-dot" aria-hidden="true"></span>Contato · Dourados, MS</p>
+      <h2 class="contact__title" id="contato-title">Vamos gravar?</h2>
+      <p class="contact__body">Me conta o que você precisa. Eu respondo pelo WhatsApp.</p>
+      <div class="contact__actions">
+        <a class="btn btn--lime" href="https://wa.me/5567992129678" target="_blank" rel="noopener" data-whatsapp>Chamar no WhatsApp</a>
+        <a class="btn btn--ghost" href="#" target="_blank" rel="noopener" data-instagram hidden>Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer band-dark">
+  <div class="wrap footer__inner mono">
+    <span>© <span data-year>2026</span> Saramago Work</span>
+    <span>Vídeos verticais para Instagram</span>
+    <a href="#topo">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vídeo em tela cheia" hidden>
+  <div class="lightbox__stage">
+    <video class="lightbox__video" muted loop playsinline controls></video>
+    <p class="lightbox__caption mono"><span data-lb-title></span><span data-lb-count></span></p>
+  </div>
+  <button class="icon-btn lightbox__close" type="button" aria-label="Fechar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  <button class="icon-btn lightbox__prev" type="button" aria-label="Vídeo anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="icon-btn lightbox__next" type="button" aria-label="Próximo vídeo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+
+<script>
+(() => {
+  // Contatos: preencha o Instagram para o botão aparecer no rodapé.
+  const SITE = {
+    whatsapp: "5567992129678",
+    whatsappText: "Olá, Saramago! Vim pelo site e quero conversar sobre vídeos.",
+    instagram: ""
+  };
+
+  const waHref = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(SITE.whatsappText)}`;
+  document.querySelectorAll("[data-whatsapp]").forEach((a) => { a.href = waHref; });
+  document.querySelectorAll("[data-instagram]").forEach((a) => {
+    if (SITE.instagram) { a.href = SITE.instagram; a.hidden = false; }
+  });
+  document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Vídeos só carregam perto da tela e só tocam enquanto aparecem.
+  // Em conexão lenta (2G/3G) ou com economia de dados, ficam só as capas até alguém abrir a tela cheia.
+  const connection = navigator.connection;
+  const slowNetwork = Boolean(connection && (connection.saveData || /2g|3g/.test(connection.effectiveType || "")));
+  const observer = new IntersectionObserver((entries) => {
+    for (const { target: video, isIntersecting } of entries) {
+      if (isIntersecting) {
+        if (!video.getAttribute("src")) video.src = video.dataset.src;
+        video.muted = true;
+        video.play().catch(() => {});
+      } else if (!video.paused) {
+        video.pause();
+      }
+    }
+  }, { rootMargin: "100px 0px", threshold: 0.15 });
+  if (!reduceMotion.matches && !slowNetwork) {
+    document.querySelectorAll("video[data-src]").forEach((video) => observer.observe(video));
+  }
+
+  // Tela cheia
+  const cards = [...document.querySelectorAll(".video-card")];
+  const lightbox = document.getElementById("lightbox");
+  const lbVideo = lightbox.querySelector(".lightbox__video");
+  const lbTitle = lightbox.querySelector("[data-lb-title]");
+  const lbCount = lightbox.querySelector("[data-lb-count]");
+  const closeBtn = lightbox.querySelector(".lightbox__close");
+  const pad = (n) => String(n).padStart(2, "0");
+  let current = 0;
+  let lastFocus = null;
+
+  function show(index) {
+    current = (index + cards.length) % cards.length;
+    const card = cards[current];
+    const source = card.querySelector("video");
+    lbVideo.poster = source.poster;
+    lbVideo.src = source.dataset.full || source.dataset.src;
+    lbTitle.textContent = card.querySelector(".video-card__title").textContent;
+    lbCount.textContent = `${pad(current + 1)} / ${pad(cards.length)}`;
+    lbVideo.play().catch(() => {});
+  }
+
+  function open(index) {
+    lastFocus = document.activeElement;
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    show(index);
+    closeBtn.focus();
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    lbVideo.pause();
+    lbVideo.removeAttribute("src");
+    lbVideo.load();
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+
+  cards.forEach((card, i) => card.addEventListener("click", () => open(i)));
+  closeBtn.addEventListener("click", close);
+  lightbox.querySelector(".lightbox__prev").addEventListener("click", () => show(current - 1));
+  lightbox.querySelector(".lightbox__next").addEventListener("click", () => show(current + 1));
+  lightbox.addEventListener("click", (event) => { if (event.target === lightbox) close(); });
+
+  document.addEventListener("keydown", (event) => {
+    if (lightbox.hidden) return;
+    if (event.key === "Escape") close();
+    else if (event.key === "ArrowLeft") show(current - 1);
+    else if (event.key === "ArrowRight") show(current + 1);
+    else if (event.key === "Tab") {
+      const focusable = [...lightbox.querySelectorAll("button, video[controls]")];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>
