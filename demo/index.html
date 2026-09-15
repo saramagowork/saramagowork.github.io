@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demonstração do site · LED PLAY</title>
+<meta name="description" content="Demonstração da abertura do novo site da LED PLAY: um pixel de LED que, ao rolar, vira o painel inteiro.">
+<!--
+  DEMONSTRAÇÃO DE SITE · 14/09/2026
+  Só a abertura (hero) do site da LED PLAY, para o link da proposta. O resto do site entra depois da aprovação.
+  Visual da versão tech (index-tech.html): fundo quase preto, feixe aurora teal → lime no fechamento, pílulas.
+  Hero = vídeo quadro a quadro: hero-frames/f0001.webp … (scripts e prompts em hero-pixel/).
+  Vídeo novo sem texto: rodar os scripts, e aqui em DATA.hero zerar "crop", pôr tag: true e ajustar "frames".
+  MOBILE (15/09/2026): em tela estreita e em pé usa o vídeo vertical do Renan (Car_animation_LED_panel_assembly…mp4),
+  95 quadros em hero-frames-mobile/ (720 px). Desktop continua igual. Se a pasta mobile não carregar, volta sozinho aos quadros de desktop
+  (é o que acontece na prévia embutida na proposta, que só tem hero-frames-sm/).
+  Prints: ?shot&p=0..1 fixa o hero num ponto. Prévia em loop: ?demo. Forçar conjunto: ?set=mobile ou ?set=desktop.
+-->
+<style>
+@font-face{font-family:"Clash Grotesk";src:url(../fonts/ClashGrotesk-Variable.woff2) format("woff2");font-weight:200 700;font-display:swap}
+@font-face{font-family:"Archivo";src:url(../fonts/Archivo-Variable.woff2) format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --bg:#0b0c0e; --bg-deep:#07080a; --text:#ffffff; --muted:#9a9ca3; --ash:#b9bbc0;
+  --line:#23252a; --line-2:#3d4046; --white:#ffffff; --ink:#07080a;
+  --teal:#23a7a1; --teal-hi:#5fd6cc; --lime:#8dc63f; --pulse:#8dc63f; --glow-t:rgba(35,167,161,.22);
+  --f-display:"Clash Grotesk","Inter",-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Archivo",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --fs-display:clamp(2.9rem,6.8vw,5.8rem); --fs-h2:clamp(2rem,4.2vw,3.6rem);
+  --fs-lead:clamp(1.05rem,1.3vw,1.25rem); --fs-sm:.875rem; --fs-xs:.75rem;
+  --gut:clamp(1.25rem,4vw,3rem); --max:75rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:1rem;line-height:1.55;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:1px solid var(--white);outline-offset:4px}
+::selection{background:var(--text);color:var(--ink)}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+.display,.h2{font-family:var(--f-display);font-weight:500;letter-spacing:-.05em;line-height:.92;text-wrap:balance}
+.display{font-size:var(--fs-display)}
+.h2{font-size:var(--fs-h2);letter-spacing:-.045em;line-height:.98}
+.lead{font-size:var(--fs-lead);color:var(--muted);max-width:44rem;line-height:1.5}
+.meta{font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.grad{background:linear-gradient(90deg,var(--teal-hi),var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.btn{display:inline-flex;align-items:center;gap:.7em;white-space:nowrap;font-weight:500;font-size:var(--fs-sm);letter-spacing:.08em;text-transform:uppercase;line-height:1;border-radius:9999px;transition:background-color .18s,color .18s,border-color .18s,box-shadow .25s}
+.btn svg{width:1em;height:1em;flex:none}
+.btn-primary{background:#fff;color:var(--ink);padding:.95em 1.6em}
+.btn-primary:hover{background:#e9fbf8;box-shadow:0 0 0 6px var(--glow-t),0 10px 34px var(--glow-t)}
+.btn-ghost{border:1px solid var(--line-2);color:var(--text);padding:.85em 1.4em}
+.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.status,.chip{display:inline-flex;align-items:center;gap:.6em;border-radius:9999px;padding:.55em .95em;font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
+.status{background:rgba(141,198,63,.1);border:1px solid rgba(141,198,63,.28);color:#c9e79f}
+.status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pulse);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(155,225,93,.5)}70%{box-shadow:0 0 0 8px rgba(155,225,93,0)}100%{box-shadow:0 0 0 0 rgba(155,225,93,0)}}
+.chip{background:rgba(35,167,161,.12);color:var(--teal-hi)}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+
+/* nav: sempre escura, logo branca */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;background:rgba(9,10,12,.62);-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:4.5rem;gap:1rem}
+.nav img{height:2.2rem;width:auto}
+
+/* hero */
+.hero{position:relative;height:300vh;background:var(--bg-deep)}
+.hero-stick{position:sticky;top:0;height:100vh;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-ui{position:absolute;inset:0;pointer-events:none}
+.hero-ui > *{pointer-events:auto}
+.hero-stage{position:absolute;left:var(--gut);right:var(--gut);opacity:0;transform:translateY(12px);transition:opacity .35s,transform .35s;will-change:opacity}
+.hero-stage.on{opacity:1;transform:none}
+.stage-1{top:calc(4.5rem + clamp(1.5rem,5vh,3.5rem))}
+.stage-1 .display{max-width:12ch}
+.stage-1 .meta{margin-top:1rem}
+.stage-2{top:50%;transform:translateY(-50%) translateY(12px);text-align:center;left:0;right:0;padding-inline:var(--gut)}
+.stage-2.on{transform:translateY(-50%)}
+.stage-2 .display{margin:0 auto;max-width:16ch}
+.stage-3{bottom:clamp(1.5rem,5vh,3rem);display:grid;gap:1.25rem;align-items:end;grid-template-columns:1fr}
+.stage-3 .display{max-width:15ch;font-size:clamp(2.1rem,5vw,4.6rem)}
+.stage-3 .lead{max-width:34rem}
+.stage-3 .ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.5rem}
+.stage-3 .status{margin-bottom:1rem}
+@media (min-width:900px){.stage-3{grid-template-columns:1.25fr 1fr}.stage-3 .side{display:grid;gap:1.25rem;justify-items:start}}
+@media (max-width:767px){.stage-3{gap:.85rem}.stage-3 .status{margin-bottom:.7rem}.stage-3 .lead{font-size:.95rem;line-height:1.45}.stage-3 .ctas{margin-top:.2rem}}
+@media (max-width:767px) and (max-height:700px){.stage-3 .lead{display:none}}
+.pixel-tag{position:absolute;left:50%;top:50%;transform:translate(calc(-50% + var(--dx,0px)),calc(-50% + var(--dy,0px)));display:flex;align-items:center;gap:.75rem;opacity:0;transition:opacity .3s}
+.pixel-tag.on{opacity:1}
+.pixel-tag i{display:block;width:4rem;height:1px;background:var(--line-2)}
+.pixel-tag span{font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--ash);white-space:nowrap}
+.hero-scroll{position:absolute;left:50%;bottom:1.25rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted);font-family:var(--f-mono);font-size:var(--fs-xs);letter-spacing:.08em;text-transform:uppercase;transition:opacity .3s}
+.hero-scroll i{display:block;width:1px;height:2.5rem;background:linear-gradient(var(--line-2),transparent);animation:drop 1.8s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero-scroll.off{opacity:0}
+.hero-load{position:absolute;right:var(--gut);bottom:1.4rem;transition:opacity .4s}
+.hero-load.off{opacity:0}
+
+/* fim da demonstração */
+.end{border-top:1px solid var(--line);background:radial-gradient(40rem 22rem at 50% 0%,rgba(35,167,161,.14),transparent 70%),var(--bg);padding-block:clamp(4rem,10vw,7rem)}
+.end .wrap{display:grid;justify-items:center;text-align:center;gap:1.25rem}
+.end .h2{max-width:20ch}
+.end .lead{max-width:36rem}
+.end .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:.5rem}
+.foot{border-top:1px solid var(--line);padding-block:1.5rem;background:var(--bg-deep)}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.foot img{height:1.9rem;width:auto}
+
+/* sem animação (preferência do sistema): hero parado no painel */
+html.static .hero{height:auto;min-height:100vh}
+html.static .hero-stick{position:relative;height:auto;min-height:100vh}
+html.static .hero-stage{position:static;opacity:1;transform:none;padding:calc(4.5rem + 2rem) 0 2rem}
+html.static .stage-1,html.static .stage-2,html.static .pixel-tag,html.static .hero-scroll{display:none}
+html.static .hero canvas{position:relative;height:60vh}
+/* prévia em loop (?demo) e captura (?shot) */
+html.demo,html.demo body{height:100%;overflow:hidden}
+html.demo .hero{height:100vh}
+html.demo .hero-stick{position:relative;height:100vh}
+html.demo .end,html.demo .foot,html.demo .hero-scroll{display:none}
+html.shot .hero,html.shot .hero-stick{height:var(--shot-h,900px)}
+html.shot .hero-stage{transition:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.status::before,.hero-scroll i{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#topo" aria-label="LED PLAY, voltar ao início"><img src="../img/logo_branco_sm.png" alt="LED PLAY" width="104" height="70"></a>
+    <span class="chip">Demonstração do site</span>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="topo" aria-label="Abertura do site">
+  <div class="hero-stick">
+    <canvas id="hero-canvas" role="img" aria-label="Vídeo quadro a quadro: um pixel de LED aceso que, ao rolar a página, se revela parte de um painel inteiro"></canvas>
+    <div class="hero-ui">
+      <div class="hero-stage stage-1" id="st1">
+        <h2 class="display">Isto é um pixel.</h2>
+        <p class="meta">Role para ver o resto</p>
+      </div>
+      <div class="pixel-tag" id="ptag"><i></i><span>1 pixel · LED P4</span></div>
+      <div class="hero-stage stage-2" id="st2">
+        <p class="display">Sozinho, ele não vende nada.</p>
+      </div>
+      <div class="hero-stage stage-3" id="st3">
+        <div>
+          <span class="status">3 telas em Dourados · 24h no ar</span>
+          <h1 class="display">Juntos, eles mostram a sua marca para <span class="grad">Dourados inteira.</span></h1>
+        </div>
+        <div class="side">
+          <p class="lead">Três telas de LED nos caminhos de maior movimento da cidade, ligadas 24 horas. As cotas de cada tela são limitadas.</p>
+          <div class="ctas">
+            <a class="btn btn-primary js-wa" href="https://wa.me/5567992129678" target="_blank" rel="noopener">Consultar cotas
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll" id="hs"><span>Scroll</span><i></i></div>
+      <span class="hero-load meta" id="hero-load" aria-live="polite"></span>
+    </div>
+  </div>
+</section>
+
+<section class="end" aria-label="Fim da demonstração">
+  <div class="wrap">
+    <span class="chip">Fim da demonstração</span>
+    <h2 class="h2">Esta é a abertura do novo site da LED PLAY.</h2>
+    <p class="lead">Telas, preços, painéis e contato entram no desenvolvimento do site, depois que a proposta for aprovada.</p>
+    <div class="ctas">
+      <button class="btn btn-ghost" type="button" id="replay">Ver a abertura de novo</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="../img/logo_branco_sm.png" alt="LED PLAY" width="104" height="70">
+    <p class="meta">Demonstração · Saramago Work</p>
+  </div>
+</footer>
+
+<script>
+/* ============ 1. DADOS ============ */
+const DATA = Object.freeze({
+  whatsapp: "5567992129678",
+  mensagemWhats: "Olá! Vi o site da LED PLAY e quero consultar as cotas disponíveis.",
+  /* hero: frames do vídeo em hero-frames/f0001.webp …
+     crop: faixas cortadas do frame (fração da altura) no início e no fim, para esconder texto gravado no vídeo atual.
+     Com o vídeo novo, sem texto: crop tudo 0, tag: true, e frames = número de arquivos. */
+  hero: {
+    frames: 96, dir: "hero-frames/", sprites: { dir: "../hero-sprites-desk/", sheets: 6, per: 16, cols: 4, w: 1280, h: 719 }, ext: ".webp",
+    crop: { start: { top: .22, bottom: .15 }, end: { top: .08, bottom: .2 } },
+    tag: false,
+    end: { from: .7, height: .5, cy: .34 },
+    aurora: true,
+    t: { st1: .16, st2: [.3, .5], st3: .74 },
+    /* celular em pé: vídeo vertical 720x1280 (o último quadro do MP4 é um corte com defeito e ficou de fora).
+       crop: no começo tira "Isto é um pixel"/"ROLE PARA VER O RESTO" (topo) e "SCROLL" (base);
+       no fim deixa só o painel (17% a 66,5% do quadro) e esconde a legenda gravada embaixo dele.
+       end.auto: o painel se encaixa sozinho entre o menu e o título. */
+    mobile: {
+      frames: 95, dir: "hero-frames-mobile/", sprites: { dir: "../hero-sprites/", sheets: 5, per: 19, cols: 4, w: 480, h: 853 },
+      crop: { start: { top: .15, bottom: .14 }, end: { top: .17, bottom: .335 } },
+      tag: false,
+      end: { from: .62, auto: true },
+      t: { st1: .16, st2: [.3, .5], st3: .84 }   /* título entra quando o painel já está quase no lugar */
+    }
+  }
+});
+
+/* ============ 2. HELPERS ============ */
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, k) => a + (b - a) * k;
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const Q = new URLSearchParams(location.search);
+const SHOT = Q.has("shot");
+const DEMO = Q.has("demo") || document.documentElement.hasAttribute("data-demo");
+if (DEMO) document.documentElement.classList.add("demo");
+if (SHOT) {
+  document.documentElement.classList.add("shot");
+  if (Q.get("h")) document.documentElement.style.setProperty("--shot-h", Q.get("h") + "px");
+}
+if (REDUCED && !SHOT && !DEMO) document.documentElement.classList.add("static");
+
+/* ============ 3. HERO: SEQUÊNCIA DE FRAMES (vídeo em WebP, frame a frame no scroll) ============ */
+function frameHero() {
+  const HD = DATA.hero, HM = Object.assign({}, DATA.hero, DATA.hero.mobile);
+  const MQ = matchMedia("(max-width: 767px) and (orientation: portrait)");
+  const FORCE = Q.get("set");
+  let semMobile = FORCE === "desktop";               /* vira true se a pasta mobile não existir */
+  const escolha = () => (!semMobile && (FORCE === "mobile" || MQ.matches)) ? HM : HD;
+  let H = escolha();
+  const nav = document.querySelector(".nav");
+  const sec = document.getElementById("topo");
+  const canvas = document.getElementById("hero-canvas");
+  const ctx = canvas.getContext("2d");
+  const st1 = document.getElementById("st1"), st2 = document.getElementById("st2"), st3 = document.getElementById("st3");
+  const ptag = document.getElementById("ptag"), hs = document.getElementById("hs"), loadEl = document.getElementById("hero-load");
+  const STATIC = document.documentElement.classList.contains("static");
+  let N = H.frames;
+  let imgs = new Array(N), loaded = new Uint8Array(N);
+  let nLoaded = 0, W = 0, Hh = 0, dpr = 1, progress = 0, dirty = true, raf = 0, lastDrawn = -1, gen = 0;
+  const src = i => `${H.dir}f${String(i + 1).padStart(4, "0")}${H.ext}`;
+
+  /* ordem de carga: primeiro, último, depois de 8 em 8, depois o resto. A página abre no 1º frame. */
+  let order = [], cursor = 0, inFlight = 0;
+  function montaOrdem() {
+    order = [0, N - 1];
+    for (let step = 8; step >= 1; step = step >> 1) for (let i = 0; i < N; i += step) if (!order.includes(i)) order.push(i);
+  }
+  montaOrdem();
+  /* folhas de quadros: cada folha traz vários quadros; o quadro vira {sheet, sx, sy0} */
+  function loadSprites() {
+    const g = gen, S = H.sprites, mob = H === HM;
+    for (let s = 0; s < S.sheets; s++) {
+      const im = new Image(); im.decoding = "async";
+      im.onload = () => {
+        if (g !== gen) return;
+        for (let k = 0; k < S.per; k++) {
+          const i = s * S.per + k; if (i >= N) break;
+          imgs[i] = { sheet: im, sx: (k % S.cols) * S.w, sy0: Math.floor(k / S.cols) * S.h, naturalWidth: S.w, naturalHeight: S.h };
+          loaded[i] = 1; nLoaded++;
+        }
+        dirty = true; updateLoad();
+      };
+      im.onerror = () => { if (g !== gen) return; console.error("Folha não carregou:", im.src); if (mob && nLoaded === 0) { semMobile = true; usaConjunto(HD); } };
+      im.src = `${S.dir}s${s}.webp`;
+    }
+  }
+  function pump() {
+    const g = gen;
+    if (H.sprites) { loadSprites(); return; }
+    while (inFlight < 4 && cursor < order.length) {
+      const i = order[cursor++], url = src(i), mob = H === HM;
+      const im = new Image(); im.decoding = "async"; inFlight++;
+      im.onload = () => { if (g !== gen) return; imgs[i] = im; loaded[i] = 1; nLoaded++; inFlight--; dirty = true; updateLoad(); pump(); };
+      im.onerror = () => {
+        if (g !== gen) return;
+        inFlight--;
+        if (mob && nLoaded === 0) { semMobile = true; return usaConjunto(HD); } /* sem pasta mobile: volta ao desktop */
+        console.error("Frame não carregou:", url); updateLoad(); pump();
+      };
+      im.src = url;
+    }
+  }
+  function usaConjunto(next) {
+    H = next; gen++;
+    N = H.frames; imgs = new Array(N); loaded = new Uint8Array(N);
+    nLoaded = 0; cursor = 0; inFlight = 0; lastDrawn = -1; dirty = true;
+    if (loadEl) loadEl.classList.remove("off");
+    montaOrdem(); pump();
+  }
+  MQ.addEventListener?.("change", () => { const nx = escolha(); if (nx !== H) usaConjunto(nx); });
+  function updateLoad() {
+    if (!loadEl) return;
+    if (nLoaded >= N) { loadEl.classList.add("off"); return; }
+    loadEl.textContent = `Carregando ${nLoaded}/${N}`;
+  }
+  /* frame carregado mais próximo do pedido, para nunca ficar em branco */
+  function nearest(i) {
+    if (loaded[i]) return i;
+    for (let d = 1; d < N; d++) { if (i - d >= 0 && loaded[i - d]) return i - d; if (i + d < N && loaded[i + d]) return i + d; }
+    return -1;
+  }
+
+  function size() {
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = canvas.clientWidth; Hh = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(Hh * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dirty = true; lastDrawn = -1;
+  }
+
+  function draw() {
+    dirty = false;
+    const p = STATIC ? 1 : progress;
+    const want = Math.round(p * (N - 1));
+    const j = nearest(want);
+    if (j >= 0 && (j !== lastDrawn || true)) {
+      const im = imgs[j];
+      /* recorte da fonte: tira as faixas de cima e de baixo (interpola do início ao fim) */
+      const top = lerp(H.crop.start.top, H.crop.end.top, p), bottom = lerp(H.crop.start.bottom, H.crop.end.bottom, p);
+      const sw = im.naturalWidth, sh = im.naturalHeight * (1 - top - bottom), sy = im.naturalHeight * top;
+      const cover = Math.max(W / sw, Hh / sh);       /* cobre a viewport */
+      const k = clamp((p - H.end.from) / (1 - H.end.from), 0, 1), e = k * k * (3 - 2 * k);
+      let fit, cy;
+      if (H.end.auto) {                               /* celular: encaixa entre o menu e o título */
+        const top0 = (nav ? nav.offsetHeight : 0) + 14;
+        const bot0 = Math.max(top0 + 90, st3.offsetTop - 18);
+        fit = Math.min((bot0 - top0) / sh, W / sw);
+        cy = lerp(Hh / 2, (top0 + bot0) / 2, e);
+      } else {
+        fit = Math.min((Hh * H.end.height) / sh, (W * .94) / sw); /* painel inteiro, no alto, com o texto embaixo */
+        cy = lerp(Hh / 2, Hh * H.end.cy, e);
+      }
+      const s = lerp(cover, Math.min(cover, fit), e);
+      const dw = sw * s, dh = sh * s, dx = (W - dw) / 2, dy = cy - dh / 2;
+      ctx.fillStyle = "#07080a"; ctx.fillRect(0, 0, W, Hh);
+      if (e > 0 && H.aurora) aurora(e, cy, dh);
+      if (e > 0) { drawFeathered(im, sy, sw, sh, dx, dy, dw, dh); lastDrawn = j; return afterDraw(p); }
+      ctx.drawImage(im.sheet || im, im.sx || 0, (im.sy0 || 0) + sy, sw, sh, dx, dy, dw, dh);
+      lastDrawn = j;
+    }
+    afterDraw(p);
+  }
+
+  /* feixe vertical teal → lime → branco, uma vez por página (Huly: "aurora beam") */
+  function aurora(e, cy, dh) {
+    const bw = Math.max(160, W * .2), x = W / 2;
+    const g = ctx.createLinearGradient(0, 0, 0, Hh);
+    g.addColorStop(0, "rgba(35,167,161,0)");
+    g.addColorStop(.18, `rgba(35,167,161,${.55 * e})`);
+    g.addColorStop(.52, `rgba(141,198,63,${.5 * e})`);
+    g.addColorStop(.72, `rgba(236,255,214,${.28 * e})`);
+    g.addColorStop(1, "rgba(7,8,10,0)");
+    ctx.save();
+    ctx.filter = `blur(${Math.round(bw * .35)}px)`;
+    ctx.fillStyle = g; ctx.fillRect(x - bw / 2, 0, bw, Hh);
+    ctx.restore();
+    const base = cy + dh * .62, rg = ctx.createRadialGradient(x, base, 0, x, base, W * .38);
+    rg.addColorStop(0, `rgba(141,198,63,${.28 * e})`); rg.addColorStop(.5, `rgba(35,167,161,${.12 * e})`); rg.addColorStop(1, "rgba(7,8,10,0)");
+    ctx.fillStyle = rg; ctx.fillRect(0, 0, W, Hh);
+  }
+  /* desenha o quadro com as bordas sumindo em transparência, para o feixe aparecer atrás */
+  const off = document.createElement("canvas"), octx = off.getContext("2d");
+  function drawFeathered(im, sy, sw, sh, dx, dy, dw, dh) {
+    const w = Math.ceil(dw), h = Math.ceil(dh);
+    if (off.width !== w || off.height !== h) { off.width = w; off.height = h; }
+    octx.globalCompositeOperation = "source-over"; octx.clearRect(0, 0, w, h);
+    octx.drawImage(im.sheet || im, im.sx || 0, (im.sy0 || 0) + sy, sw, sh, 0, 0, w, h);
+    const f = Math.max(24, Math.min(w, h) * .12);
+    octx.globalCompositeOperation = "destination-in";
+    let g = octx.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(f / h, "#000"); g.addColorStop(1 - f / h, "#000"); g.addColorStop(1, "rgba(0,0,0,0)");
+    octx.fillStyle = g; octx.fillRect(0, 0, w, h);
+    g = octx.createLinearGradient(0, 0, w, 0);
+    g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(f / w, "#000"); g.addColorStop(1 - f / w, "#000"); g.addColorStop(1, "rgba(0,0,0,0)");
+    octx.fillStyle = g; octx.fillRect(0, 0, w, h);
+    ctx.drawImage(off, dx, dy, dw, dh);
+  }
+
+  function afterDraw(p) {
+    if (!STATIC) {
+      st1.classList.toggle("on", p < H.t.st1);
+      ptag.classList.toggle("on", H.tag && p < H.t.st1);
+      st2.classList.toggle("on", p > H.t.st2[0] && p < H.t.st2[1]);
+      st3.classList.toggle("on", p > H.t.st3);
+      hs.classList.toggle("off", p > .08);
+    }
+  }
+
+  function onScroll() {
+    if (SHOT) { progress = clamp(Number(Q.get("p") ?? 1), 0, 1); dirty = true; return; }
+    const r = sec.getBoundingClientRect();
+    const total = sec.offsetHeight - window.innerHeight;
+    const p = clamp(-r.top / total, 0, 1);
+    if (p !== progress) { progress = p; dirty = true; }
+  }
+  function loop() { if (dirty) draw(); raf = requestAnimationFrame(loop); }
+
+  let rt;
+  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(size, 120); });
+  pump();
+  if (DEMO) {
+    /* linha do tempo da prévia: espera no pixel, abre a tela, segura, volta ao pixel */
+    st1.querySelector(".meta").textContent = "Prévia da intro · toca sozinha";
+    const T = [1600, 5200, 3400, 1600], total = T.reduce((a, c) => a + c, 0);
+    const t0 = performance.now();
+    const AT = Number(Q.get("at") || 0); /* teste: ?demo&at=4000 congela a prévia nesse instante */
+    const tick = now => {
+      let t = (AT || (now - t0)) % total, p;
+      if (t < T[0]) p = 0;
+      else if ((t -= T[0]) < T[1]) p = t / T[1];
+      else if ((t -= T[1]) < T[2]) p = 1;
+      else p = 1 - (t - T[2]) / T[3];
+      if (p !== progress) { progress = p; dirty = true; }
+      if (dirty) draw();
+      raf = requestAnimationFrame(tick);
+    };
+    size(); draw(); raf = requestAnimationFrame(tick);
+    return;
+  }
+  if (!STATIC) window.addEventListener("scroll", onScroll, { passive: true });
+  size(); onScroll(); draw();
+  if (!STATIC) loop();
+}
+
+
+/* ============ 4. EVENTOS E INIT ============ */
+const wa = `https://wa.me/${DATA.whatsapp}?text=${encodeURIComponent(DATA.mensagemWhats)}`;
+document.querySelectorAll("a.js-wa").forEach(a => a.href = wa);
+document.getElementById("replay").addEventListener("click", () => window.scrollTo({ top: 0, behavior: REDUCED ? "auto" : "smooth" }));
+document.fonts.load("500 40px 'Clash Grotesk'").catch(() => {}).then(() => document.fonts.ready).then(() => {
+  try { frameHero(); } catch (err) { console.error("Hero indisponível:", err); }
+});
+</script>
+</body>
+</html>
