@@ -2,854 +2,613 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saramago Work · Vídeos verticais para Instagram</title>
-<meta name="description" content="Pode me chamar de Saramago. Eu gravo e edito vídeos na vertical para o Instagram, do roteiro à postagem. Dourados, MS.">
-<meta name="theme-color" content="#f5f5f5">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saramago Work · Eu acho o problema do seu negócio</title>
+<meta name="description" content="Renan Saramago, publicitário em Dourados, MS. Antes de gravar qualquer coisa, eu acho o que está travando o seu negócio — e resolvo com vídeo vertical, IA ou posicionamento, o que o caso pedir.">
+<meta name="theme-color" content="#F4F1EA">
+<meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Saramago Work · Vídeos verticais para Instagram">
-<meta property="og:description" content="Eu gravo e edito vídeos na vertical para o Instagram, do roteiro à postagem.">
+<meta property="og:title" content="Saramago Work · Eu acho o problema do seu negócio. Depois eu resolvo.">
+<meta property="og:description" content="Publicitário em Dourados, MS. Vídeo vertical, IA e posicionamento são ferramentas — eu escolho depois de entender o que está travando.">
 <meta property="og:url" content="https://saramagowork.github.io/">
 <meta property="og:image" content="https://saramagowork.github.io/assets/og.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23121212'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23f11216'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F4F1EA'/%3E%3Ccircle cx='32' cy='32' r='11' fill='none' stroke='%2315150F' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400..500&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400..500&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400..500&display=swap"></noscript>
-<link rel="preload" as="image" href="assets/videos/take-01.webp" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Newsreader:ital,wght@1,500&display=swap">
+<link rel="preload" as="image" href="assets/videos/take-01.webp">
+<script>document.documentElement.className='js'</script>
 <style>
-/* ==========================================================================
-   Saramago Work
-   Sistema visual montado com o código das referências marcadas com
-   SARAMAGO WORK no Notion (Refero Styles): Flim, VEED, Photographer,
-   Structured, Squarespace, Apple (España), Sigmaphoto, Hims App e Tedy.
-   O comentário de cada token e componente indica de onde ele veio.
-   ========================================================================== */
+@font-face{font-family:"Bricolage Fallback";src:local("Arial"),local("Helvetica Neue"),local("Roboto");size-adjust:98%;ascent-override:95%;descent-override:25%;line-gap-override:0%}
+@font-face{font-family:"Newsreader Fallback";font-style:italic;src:local("Georgia");size-adjust:92%}
 
-:root {
-  /* Cores */
-  --color-ink: #141414;          /* Flim · Ink */
-  --color-canvas: #f5f5f5;       /* Flim · Canvas */
-  --color-hairline: #d9d9d9;     /* Flim · Hairline */
-  --color-paper: #ffffff;        /* Flim · Paper */
-  --color-onyx: #121212;         /* VEED · Onyx */
-  --color-carbon: #0c0a09;       /* VEED · Carbon */
-  --color-charcoal: #323232;     /* VEED · Charcoal */
-  --color-fog: #e6e6e7;          /* VEED · Fog */
-  --color-lime-spark: #96ff1a;   /* VEED · Lime Spark */
-  --color-forest-ink: #083300;   /* VEED · Forest Ink */
-  --color-spring-wash: #d6ffa6;  /* VEED · Spring Wash */
-  --color-mint-mist: #e6ffc8;    /* VEED · Mint Mist */
-  --color-signal-red: #f11216;   /* Photographer · Signal Red */
-  --color-ash-gray: #707070;     /* Sigmaphoto · Ash Gray */
-  --color-ash: #898989;          /* Squarespace · Ash */
-  --color-obsidian: #000000;     /* Squarespace · Obsidian / Structured · Ink */
+:root{
+  --paper:#F4F1EA; --paper2:#EAE6DC; --ink:#15150F; --graf:#5B5A52; --hair:#D8D3C6;
+  --moss:#2E4A2F; --clay:#8C5A34; --night:#0E0F0C; --sand:#D9CFB8; --clay-l:#D9905F;
+  --sans:"Bricolage Grotesque","Bricolage Fallback",system-ui,sans-serif;
+  --quote:"Newsreader","Newsreader Fallback",Georgia,serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --gutter:16px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light;-webkit-text-size-adjust:100%;scroll-padding-bottom:72px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,p,figure,ol,ul{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--moss);outline-offset:3px}
+.dark :focus-visible{outline-color:var(--sand)}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{width:100%;max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:56px}
+.kicker{font-size:12px;line-height:1.3;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--graf)}
+.lbl{display:block;font-size:12px;line-height:1.3;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--graf);margin-bottom:6px}
+.lbl--no{color:var(--clay)}
+.h2{font-weight:600;font-size:28px;line-height:1.1;letter-spacing:-.01em}
+.measure{max-width:34em}
+.link{color:var(--moss);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.link:hover{text-decoration-thickness:2px}
 
-  /* Tipografia: substitutos gratuitos indicados nas próprias referências */
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;   /* Photographer, Sigmaphoto, Apple, VEED, Squarespace, Structured, Hims, Tedy */
-  --font-serif: "DM Serif Display", ui-serif, Georgia, "Times New Roman", serif;                    /* VEED · substituto do PPEditorialNew */
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;           /* Flim · substituto do PP Neue Montreal Mono */
+/* 00 · barra */
+.bar-top{display:flex;align-items:center;justify-content:space-between;min-height:48px;font-size:13px;font-weight:500}
+.bar-top a{padding:8px 0}
 
-  --text-caption: 12px;          /* Flim · caption */
-  --tracking-caption: 0.72px;    /* Flim · 0.06em */
-  --text-body-sm: 16px;          /* VEED · body */
-  --text-body: 17px;             /* Apple · body */
-  --leading-body: 1.47;          /* Apple · body */
-  --tracking-body: -0.272px;     /* Apple · body */
-  --text-subheading: 21px;       /* Apple · subheading */
-  --text-heading-sm: 28px;       /* Apple · heading-sm */
-  --text-heading: clamp(40px, 4.8vw, 56px);   /* VEED · heading 44px → Tedy · heading 56px */
-  --text-display: clamp(48px, 6.4vw, 88px);   /* Sigmaphoto · display 88px */
-  --text-wordmark: 17.6vw;       /* Photographer · display (até 320px) */
+/* 01 · hero */
+.hero{padding-top:24px;padding-bottom:40px}
+.h1{font-weight:800;font-size:clamp(40px,10.5vw,80px);line-height:1;letter-spacing:-.02em;margin-top:12px;text-wrap:balance}
+.lead{margin-top:20px;font-size:17px;line-height:1.5;max-width:34em}
+.pv{display:inline-block;height:2.2em;aspect-ratio:9/16;vertical-align:-.55em;margin:0 .18em;border-radius:3px;background:var(--night);overflow:hidden;position:relative;outline-offset:3px}
+.pv::before{content:"";position:absolute;inset:-8px}
+.pv video,.pv img{width:100%;height:100%;object-fit:cover;display:block}
+.pv:hover{box-shadow:0 0 0 2px var(--moss)}
+.q{font-weight:600;font-size:22px;line-height:1.15;margin-top:36px;letter-spacing:-.01em}
+.syms{margin-top:14px;border-bottom:1px solid var(--hair)}
+.sym{display:grid;grid-template-columns:24px 32px 1fr;align-items:baseline;min-height:64px;padding:18px 0;border-top:1px solid var(--hair);border-left:3px solid transparent;color:inherit;text-decoration:none;transition:padding .24s var(--ease),border-color .24s var(--ease)}
+.sym:hover .txt{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:var(--hair)}
+.dot{width:14px;height:14px;border:1.5px solid var(--ink);border-radius:50%;position:relative;align-self:center}
+.dot::after{content:"";position:absolute;inset:2px;border-radius:50%;background:var(--moss);transform:scale(0);transition:transform .2s var(--ease)}
+.idx{font-size:12px;font-weight:500;color:var(--graf);letter-spacing:.06em}
+.txt{font:italic 500 26px/1.15 var(--quote);text-indent:-.45em}
+.sym[aria-pressed=true]{border-left-color:var(--moss);padding-left:12px}
+.sym[aria-pressed=true] .dot::after{transform:scale(1)}
+.helper{margin-top:12px;font-size:12px;color:var(--graf)}
 
-  /* Formas */
-  --radius-card: 16px;           /* Flim · images / VEED · cards */
-  --radius-feature: 28px;        /* Apple · cards */
-  --radius-button: 10px;         /* VEED · buttons */
-  --radius-chip: 4px;            /* VEED · Category Tag Chip */
-  --radius-badge: 32px;          /* Tedy · badges */
-  --radius-pill: 28.8px;         /* Structured · buttons */
-  --radius-nav: 52px;            /* Hims · nav */
+/* 02 · leituras */
+.leituras{background:var(--paper2)}
+.apoio{margin-top:8px;font-size:15px;color:var(--graf);max-width:34em}
+.lts{margin-top:28px;border-top:1px solid var(--hair)}
+.lt{border-bottom:1px solid var(--hair);border-left:3px solid transparent;transition:padding .24s var(--ease),border-color .24s var(--ease);scroll-margin-top:16px}
+.lt:target,.lt.is-mine{border-left-color:var(--moss);padding-left:16px}
+.lt summary{list-style:none;display:block;cursor:pointer;padding:20px 0;position:relative}
+.lt summary::-webkit-details-marker{display:none}
+.lt-label{display:block;padding-right:72px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--graf);font-weight:500}
+.lt-label q{font:italic 500 16px/1.3 var(--quote);text-transform:none;letter-spacing:0;color:var(--ink);quotes:"“" "”"}
+.lt h2{font-weight:600;font-size:28px;line-height:1.1;letter-spacing:-.01em;margin-top:8px;padding-right:72px;text-wrap:pretty}
+.lt-toggle{position:absolute;right:0;top:22px;font-size:12px;color:var(--graf);letter-spacing:.02em}
+.lt-toggle::before{content:"+ abrir"}
+.lt[open] .lt-toggle::before{content:"– fechar"}
+.lt-body{padding:0 0 28px;max-width:34em}
+.lt-body>*{transition:opacity .32s var(--ease),transform .32s var(--ease)}
+.lt-body>*+*{margin-top:18px}
+.lt-body p{line-height:1.55}
+.tools{font-size:15px}
+.lt-foot{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.lt-foot .btn{flex:1 1 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:6px;font-weight:500;font-size:16px;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:background-color .2s var(--ease),color .2s var(--ease)}
+.btn--wa{background:var(--moss);color:var(--paper)}
+.btn--wa:hover{background:#243b25}
+.btn--mine{background:transparent;color:var(--moss);border-color:var(--moss)}
+.btn--mine:hover,.btn--mine[aria-pressed=true]{background:rgba(46,74,47,.08)}
+.btn--mine[aria-pressed=true]::before{content:"✓";margin-right:8px}
+.card{display:none}
 
-  /* Layout */
-  --page-max-width: 1200px;      /* VEED · Tedy · Hims · Squarespace */
-  --gutter: clamp(16px, 4vw, 40px);
-  --section-pad: clamp(72px, 10vw, 120px);    /* Squarespace · Apple · section gap 80–120px */
-  --grid-size: 40px;             /* Flim · Grid Background Pattern */
+/* 03 · como eu olho */
+.dark{background:var(--night);color:var(--sand)}
+.dark .kicker,.dark .lbl{color:rgba(217,207,184,.72)}
+.olhar-head{padding-bottom:32px}
+.olhar-head .h2{max-width:22em;text-wrap:pretty}
+.olhar-head p{margin-top:16px;max-width:34em}
+.stage-wrap{position:sticky;top:0;z-index:2;background:var(--night);padding:10px 0 12px}
+.stage{position:relative;height:56vh;height:56svh;aspect-ratio:9/16;margin:0 auto;background:var(--night);overflow:hidden;border-radius:4px}
+.stage .tk{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease}
+.stage .tk.front{opacity:1}
+.notes{padding-top:8px}
+.note{opacity:.45;transition:opacity .24s var(--ease);min-height:44vh;min-height:44svh;padding:24px 0;display:flex;flex-direction:column;justify-content:center}
+.note.on{opacity:1}
+.note-n{font-weight:700;font-size:13px;color:var(--clay-l);letter-spacing:.06em}
+.lead-line{display:block;height:1px;background:var(--clay-l);transform:scaleX(0);transform-origin:left;transition:transform .32s var(--ease);margin:10px 0 12px}
+.note.on .lead-line{transform:scaleX(1)}
+.note-t{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(217,207,184,.72);font-weight:500}
+.note p{margin-top:8px;line-height:1.55;max-width:30em}
+.takes{margin-top:24px;border-top:1px solid rgba(217,207,184,.18);border-bottom:1px solid rgba(217,207,184,.18)}
+.takes summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:500;display:flex;justify-content:space-between;align-items:center}
+.takes summary::-webkit-details-marker{display:none}
+.takes summary::after{content:"+";font-size:20px;line-height:1}
+.takes[open] summary::after{content:"–"}
+.strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:8px max(16px,calc(50% - 110px)) 24px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.strip::-webkit-scrollbar{display:none}
+.strip:focus-visible{outline-offset:-2px}
+.take{flex:0 0 min(64vw,220px);scroll-snap-align:center;opacity:.55;transition:opacity .3s var(--ease)}
+.take.is-center{opacity:1}
+.tk-box{position:relative;aspect-ratio:9/16;background:#161713;border-radius:4px;overflow:hidden}
+.tk-box video{width:100%;height:100%;object-fit:cover}
+.take figcaption{margin-top:10px}
+.take .cap-t{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(217,207,184,.72);font-weight:500}
+.take .cap-p{display:block;font-size:14px;line-height:1.45;margin-top:4px}
+.play{position:absolute;left:8px;bottom:8px;font:500 13px/1 var(--sans);padding:8px 10px;border:1px solid currentColor;border-radius:4px;background:rgba(14,15,12,.72);color:var(--sand);cursor:pointer}
 
-  /* Sombras */
-  --shadow-nav: rgba(0, 0, 0, 0.06) 0px 8px 30px 0px;     /* Hims · nav */
-  --shadow-phone: rgba(0, 0, 0, 0.25) 0px 9px 46px 0px;   /* Hims · phone mockup */
-}
+/* 04 · ferramentas + quem */
+.ferr .h2{margin-top:10px;max-width:24em;text-wrap:pretty}
+.tools-grid{margin-top:32px;display:grid;gap:28px}
+.tool p{margin-top:6px;line-height:1.55}
+.quem{margin-top:44px;padding-top:32px;border-top:1px solid var(--hair)}
+.quem p{margin-top:6px;max-width:34em;line-height:1.55}
 
-*, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--color-canvas);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  font-size: var(--text-body);
-  line-height: var(--leading-body);
-  letter-spacing: var(--tracking-body);
-  -webkit-font-smoothing: antialiased;
-}
-img, video { display: block; max-width: 100%; }
-[hidden] { display: none !important; }
-a { color: inherit; }
-h1, h2, h3, p, figure { margin: 0; }
-[id] { scroll-margin-top: 96px; }
-:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; }
-.band-dark :focus-visible, .lightbox :focus-visible { outline-color: var(--color-lime-spark); }
+/* 05 · sua mensagem */
+.msg{background:var(--paper2)}
+.msg .h2{margin-top:10px}
+.msg .intro{margin-top:16px;max-width:34em}
+.ta{display:block;width:100%;margin-top:24px;padding:14px;border:1px solid var(--hair);border-radius:6px;background:var(--paper);font-size:15px;line-height:1.5;resize:vertical;min-height:120px;field-sizing:content}
+.ta:focus-visible{outline-offset:0}
+.ta-hint{margin-top:6px;font-size:12px;color:var(--graf)}
+.fields{display:grid;gap:12px;margin-top:16px}
+.field{display:block;font-size:13px;font-weight:500;color:var(--graf)}
+.field input{display:block;width:100%;height:48px;margin-top:6px;padding:0 12px;border:1px solid var(--hair);border-radius:6px;background:var(--paper);font-size:16px;font-weight:400;color:var(--ink)}
+.field input::placeholder{color:#8d8b82}
+.btn--big{width:100%;min-height:56px;font-size:17px;margin-top:20px}
+.alt{margin-top:16px;font-size:13px;color:var(--graf)}
+.alt a{color:var(--graf);white-space:nowrap}
 
-.wrap {
-  width: 100%;
-  max-width: calc(var(--page-max-width) + var(--gutter) * 2);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
-}
-.skip-link {
-  position: absolute; left: 16px; top: -100px; z-index: 200;
-  padding: 10px 16px;
-  background: var(--color-ink); color: var(--color-paper);
-  border-radius: var(--radius-button);
-}
-.skip-link:focus { top: 16px; }
+/* 06 · rodapé */
+.foot{padding:28px 0 calc(28px + 64px);font-size:12px;color:var(--graf);display:flex;flex-direction:column;gap:8px}
+.foot a{color:inherit}
+body:not(.has-case) .foot{padding-bottom:28px}
 
-/* Flim · Eyebrow Label / Ghost Navigation Link: mono, caixa alta, 0.06em */
-.mono {
-  font-family: var(--font-mono);
-  font-size: var(--text-caption);
-  line-height: 1;
-  letter-spacing: var(--tracking-caption);
-  text-transform: uppercase;
-}
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--color-charcoal); }
-.band-dark .eyebrow { color: var(--color-ash); }
+/* barra fixa (celular, só com JS) */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:var(--paper2);border-top:1px solid var(--hair);font-size:13px;transform:translateY(100%);transition:transform .28s var(--ease)}
+.bar a{color:var(--moss);font-weight:500;text-decoration:none;padding:8px 0 8px 12px;white-space:nowrap}
+body.has-case:not(.at-msg) .bar{transform:none}
+.bar-case{color:var(--graf)}
+.bar-case b{color:var(--ink);font-weight:500}
 
-/* Photographer · Signal Red como luz de gravação */
-.rec-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--color-signal-red); }
-.rec-dot--live { animation: rec 1.6s steps(1, end) infinite; }
-@keyframes rec { 50% { opacity: 0.2; } }
+html:not(.js) .bar,html:not(.js) .card{display:none}
+html:not(.js) .note{opacity:1}
+html:not(.js) .stage .tk:first-child{opacity:1}
+html:not(.js) video.lz{display:none}
+html:not(.js) .take{opacity:1}
+html:not(.js) .ta-hint,html:not(.js) .fields{display:none}
 
-/* VEED · Hero CTA Pair (Lime + Ghost) */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  min-height: 48px;
-  padding: 14px 24px;
-  border: 1px solid transparent;
-  border-radius: var(--radius-button);
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.07px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+@media (min-width:600px){
+  .fields{grid-template-columns:1fr 1fr}
+  .foot{flex-direction:row;justify-content:space-between;flex-wrap:wrap}
 }
-.btn svg { width: 10px; height: 12px; }
-.btn--lime { background: var(--color-lime-spark); border-color: var(--color-forest-ink); color: var(--color-forest-ink); }
-.btn--lime:hover { background: var(--color-spring-wash); }
-.btn--ghost { border-color: var(--color-hairline); color: var(--color-charcoal); }
-.btn--ghost:hover { background: var(--color-paper); }
-.band-dark .btn--ghost { border-color: rgba(255, 255, 255, 0.24); color: var(--color-paper); }
-.band-dark .btn--ghost:hover { background: rgba(255, 255, 255, 0.08); }
-
-/* Hims · Floating Nav Bar */
-.nav {
-  position: fixed; top: 16px; left: 50%; z-index: 50;
-  transform: translateX(-50%);
-  width: min(calc(100% - var(--gutter) * 2), var(--page-max-width));
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 8px 8px 8px 22px;
-  background: var(--color-paper);
-  border-radius: var(--radius-nav);
-  box-shadow: var(--shadow-nav);
+@media (min-width:900px){
+  :root{--gutter:24px}
+  .section{padding-block:96px}
+  body{font-size:18px}
+  .lead{font-size:19px}
+  .pv{height:2.4em}
+  .hero{padding-top:88px;padding-bottom:88px}
+  .hero-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:start}
+  .hero-copy{grid-column:1/7}
+  .hero-ask{grid-column:8/13;margin-top:8px}
+  .q{margin-top:0;font-size:28px}
+  .txt{font-size:32px}
+  .h2,.lt h2{font-size:38px}
+  .lt-toggle{top:24px}
+  .lts-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+  .lts-main{grid-column:1/8}
+  .card{display:block;grid-column:9/13;position:sticky;top:24px;align-self:start;margin-top:28px;background:var(--paper);border:1px solid var(--hair);border-radius:8px;padding:20px}
+  .card ul{margin-top:10px}
+  .card li{font:italic 500 17px/1.3 var(--quote);padding:6px 0;border-top:1px solid var(--hair)}
+  .card li.muted{font:400 14px/1.4 var(--sans);color:var(--graf);border-top:0;padding-top:0}
+  .lt-foot .btn{flex:0 0 auto}
+  .card .btn{width:100%;margin-top:16px}
+  .card .adj{display:block;margin-top:12px;font-size:13px;color:var(--graf);text-align:center}
+  .olhar-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:start}
+  .stage-wrap{grid-column:2/6;position:sticky;top:24px;padding:0;background:transparent}
+  .stage{height:640px;width:360px;margin:0}
+  .notes{grid-column:7/13;padding-top:0}
+  .note{min-height:40vh;padding:0}
+  .takes{margin-top:48px}
+  .strip{padding-inline:0}
+  .take{scroll-snap-align:start}
+  .tools-grid{grid-template-columns:repeat(3,1fr);gap:32px}
+  .quem{margin-top:64px;padding-top:40px}
+  .msg-inner{max-width:640px}
+  .btn--big{width:280px}
+  .bar{display:none}
+  .foot{padding-bottom:28px}
 }
-.nav__brand {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 15px; font-weight: 600; letter-spacing: -0.15px;
-  text-decoration: none; white-space: nowrap;
-}
-.nav__links { display: flex; gap: 28px; margin: 0; padding: 0; list-style: none; }
-.nav__links a { display: block; padding: 6px 0; text-decoration: none; }
-.nav__links a:hover { text-decoration: underline; text-underline-offset: 5px; }
-
-/* Structured · Pill Action Button */
-.btn-pill {
-  display: inline-flex; align-items: center;
-  min-height: 40px;
-  padding: 9px 18px;
-  background: var(--color-obsidian); color: var(--color-paper);
-  border-radius: var(--radius-pill);
-  font-size: 13px; line-height: 1;
-  text-decoration: none; white-space: nowrap;
-}
-.btn-pill:hover { background: var(--color-charcoal); }
-
-/* ---------- Hero ---------- */
-
-/* Flim · Canvas + Grid Background Pattern */
-.hero {
-  position: relative;
-  overflow: hidden;
-  background-color: var(--color-canvas);
-  background-image:
-    linear-gradient(var(--color-hairline) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-hairline) 1px, transparent 1px);
-  background-size: var(--grid-size) var(--grid-size);
-  background-position: center -1px;
-}
-.hero__inner {
-  position: relative; z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(32px, 5vw, 72px);
-  min-height: 100svh;
-  padding-top: 128px;
-  padding-bottom: calc(var(--text-wordmark) * 0.8);
-}
-/* VEED · Hero Headline Block (serif editorial, tracking negativo) */
-.hero__title {
-  margin: 24px 0;
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: var(--text-display);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
-}
-.hero__title em { font-style: italic; }
-.hero__lead { max-width: 30em; margin-bottom: 32px; color: var(--color-charcoal); }
-.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-/* Flim · Image Thumbnail Card, espalhados como polaroids na mesa */
-.hero__reels { position: relative; height: clamp(420px, 62vh, 620px); }
-.reel {
-  --x: 0px; --y: 0px; --r: 0deg;
-  position: absolute;
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-  background: var(--color-onyx);
-  border: 1px solid var(--color-hairline);
-  border-radius: var(--radius-card);
-  transform: translate(var(--x), var(--y)) rotate(var(--r));
-  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-.reel video { width: 100%; height: 100%; object-fit: cover; }
-.reel:nth-child(1) { --r: -3deg; height: 66%; left: 0; top: 18%; animation-delay: 0.08s; }
-.reel:nth-child(2) { --x: -50%; --r: 1.5deg; height: 86%; left: 50%; top: 0; z-index: 1; }
-.reel:nth-child(3) { --r: 4deg; height: 60%; right: 0; top: 30%; animation-delay: 0.16s; }
-.reel:nth-child(3) .chip { left: auto; right: 10px; }
-@keyframes rise { from { opacity: 0; transform: translate(var(--x), calc(var(--y) + 32px)) rotate(var(--r)); } }
-.hero__spec { position: absolute; top: -32px; right: 0; color: var(--color-ash-gray); }
-
-/* VEED · Category Tag Chip */
-.chip {
-  position: absolute; top: 10px; left: 10px; z-index: 2;
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 8px;
-  border-radius: var(--radius-chip);
-  background: rgba(0, 0, 0, 0.4);
-  color: var(--color-paper);
-  font-size: 12px; font-weight: 500; line-height: 1.4;
-}
-
-/* Photographer · Wordmark gigante / Structured · cortado nas bordas da tela */
-.wordmark {
-  position: absolute; left: 50%; bottom: 0; z-index: 1;
-  transform: translate(-50%, 16%);
-  font-size: var(--text-wordmark);
-  font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: -0.02em;
-  color: var(--color-ink);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-}
-
-/* ---------- Seções ---------- */
-
-.section { padding-block: var(--section-pad); }
-.section-label { display: block; margin-bottom: 20px; color: var(--color-ash-gray); }
-.band-dark { background: var(--color-onyx); color: var(--color-paper); }
-.band-dark .section-label { color: var(--color-ash); }
-.section-head { max-width: 720px; margin-bottom: 48px; }
-
-/* VEED · Dark Feature Section Header / Sigmaphoto · heading */
-.h2 {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: var(--text-heading);
-  line-height: 0.98;
-  letter-spacing: -0.02em;
-}
-
-/* Sigmaphoto · Centered Editorial Text Block */
-.intro { background: var(--color-paper); text-align: center; }
-.intro .h2 { max-width: 720px; margin-inline: auto; line-height: 1.14; }
-/* Flim · Highlighted Heading, com o Spring Wash do VEED */
-.mark {
-  padding: 0 0.16em;
-  background: var(--color-spring-wash);
-  border-radius: 25px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-.intro__body {
-  max-width: 600px;
-  margin: 28px auto 32px;
-  color: var(--color-ash-gray);
-  font-size: var(--text-body-sm);
-  line-height: 1.54;
-  letter-spacing: 0;
-}
-/* Sigmaphoto · Text-Only Link CTA */
-.text-link { display: inline-block; padding: 6px 0; text-decoration: none; }
-.text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
-
-/* Vídeos */
-.videos__head { max-width: 640px; margin: 0 auto 48px; text-align: center; }
-.videos__sub { margin-top: 16px; color: var(--color-ash); font-size: var(--text-body-sm); letter-spacing: 0; }
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin: 0; padding: 0;
-  list-style: none;
-}
-
-/* VEED · Use Case Category Card + play verde de 32px */
-.video-card {
-  position: relative;
-  display: block;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  border-radius: var(--radius-card);
-  background: #1b1b1b;
-  color: var(--color-paper);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-.video-card video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.video-card:hover video { transform: scale(1.04); }
-.video-card::after {
-  content: "";
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 26%, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 0.62) 100%);
-  pointer-events: none;
-}
-.video-card__meta { position: absolute; left: 12px; right: 56px; bottom: 14px; z-index: 2; display: grid; gap: 6px; }
-.video-card__title { font-size: 14px; font-weight: 500; line-height: 1.25; letter-spacing: -0.07px; }
-.video-card__info { color: rgba(255, 255, 255, 0.72); font-size: 11px; }
-.play {
-  position: absolute; right: 12px; bottom: 12px; z-index: 2;
-  display: grid; place-items: center;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: var(--color-lime-spark);
-  color: var(--color-carbon);
-  transition: transform 0.2s ease;
-}
-.play svg { width: 10px; height: 12px; margin-left: 2px; }
-.video-card:hover .play { transform: scale(1.12); }
-
-/* Squarespace · Stat Display Block */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  margin: 72px 0 0; padding: 48px 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  list-style: none;
-  text-align: center;
-}
-.stat__value { display: block; font-size: clamp(56px, 8vw, 96px); font-weight: 300; line-height: 0.93; letter-spacing: -0.06em; }
-.stat__label { display: block; margin-top: 16px; color: var(--color-ash); font-size: 12px; line-height: 1.4; letter-spacing: 0.24px; text-transform: uppercase; }
-
-/* Apple · Band Section + Feature Card */
-.services { background: var(--color-canvas); }
-.service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.service {
-  display: flex; flex-direction: column; gap: 12px;
-  padding: 28px;
-  background: var(--color-paper);
-  border-radius: var(--radius-feature);
-}
-.service--featured {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 40px;
-  padding: clamp(28px, 4vw, 56px);
-}
-.service__num { color: var(--color-ash-gray); }
-.service__title { font-size: var(--text-heading-sm); font-weight: 600; line-height: 1.14; letter-spacing: -0.252px; }
-.service--featured .service__title { margin-top: 16px; font-size: clamp(32px, 3.6vw, 39px); line-height: 1.07; letter-spacing: -0.351px; }
-.service__body { color: var(--color-ash-gray); }
-.service--featured .service__body { max-width: 30em; margin-top: 16px; }
-/* Tedy · Pill Badge */
-.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; }
-.badge {
-  padding: 8px 14px;
-  background: var(--color-mint-mist);
-  box-shadow: var(--color-spring-wash) 0 0 0 1px;
-  border-radius: var(--radius-badge);
-  font-size: 14px; font-weight: 500; line-height: 1; letter-spacing: -0.07px;
-}
-/* Hims · Phone Mockup (sombra) */
-.service__media {
-  justify-self: center;
-  width: min(100%, 300px);
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-  background: var(--color-onyx);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-phone);
-}
-.service__media video { width: 100%; height: 100%; object-fit: cover; }
-
-/* Processo: linhas finas do Photographer, numeração mono do Flim */
-.process { background: var(--color-paper); }
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
-.step { padding-top: 20px; border-top: 1px solid var(--color-ink); }
-.step__num { color: var(--color-ash-gray); }
-.step__title { margin: 14px 0 8px; font-size: var(--text-subheading); font-weight: 500; line-height: 1.33; letter-spacing: -0.21px; }
-.step__body { color: var(--color-ash-gray); font-size: var(--text-body-sm); line-height: 1.5; letter-spacing: 0; }
-
-/* Structured · Ink Room + Sigmaphoto · display */
-.contact { padding-block: clamp(96px, 14vw, 168px); text-align: center; }
-.contact__title {
-  margin: 24px 0 calc(24px + 0.12em);
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: clamp(64px, 12vw, 160px);
-  line-height: 0.86;
-  letter-spacing: -0.03em;
-}
-.contact__body { max-width: 30em; margin: 0 auto 36px; color: var(--color-ash); }
-.contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-.footer { border-top: 1px solid rgba(255, 255, 255, 0.12); }
-.footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding-block: 24px; color: var(--color-ash); }
-.footer a { text-decoration: none; }
-.footer a:hover { color: var(--color-paper); }
-
-/* ---------- Tela cheia ---------- */
-
-.lightbox {
-  position: fixed; inset: 0; z-index: 100;
-  display: grid; place-items: center;
-  padding: 24px;
-  background: rgba(12, 10, 9, 0.94);
-}
-.lightbox[hidden] { display: none; }
-.lightbox__stage { position: relative; height: min(84svh, 880px, calc((100vw - 48px) * 16 / 9)); aspect-ratio: 9 / 16; }
-.lightbox__video {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  background: var(--color-obsidian);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-phone);
-}
-.lightbox__caption { position: absolute; top: calc(100% + 14px); left: 0; right: 0; display: flex; justify-content: space-between; gap: 16px; color: var(--color-ash); }
-/* VEED · setas do carrossel (círculo branco com borda Fog) */
-.icon-btn {
-  position: absolute;
-  display: grid; place-items: center;
-  width: 44px; height: 44px;
-  padding: 0;
-  background: var(--color-paper);
-  color: var(--color-carbon);
-  border: 1px solid var(--color-fog);
-  border-radius: 50%;
-  cursor: pointer;
-}
-.icon-btn svg { width: 16px; height: 16px; }
-.lightbox__close { top: 16px; right: 16px; }
-.lightbox__prev, .lightbox__next { top: 50%; transform: translateY(-50%); }
-.lightbox__prev { left: 16px; }
-.lightbox__next { right: 16px; }
-
-/* ---------- Responsivo ---------- */
-
-@media (max-width: 1024px) {
-  .video-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 900px) {
-  .hero__inner { grid-template-columns: 1fr; min-height: 0; padding-top: 112px; }
-  .hero__reels { height: min(112vw, 540px); }
-  .hero__spec { display: none; }
-  .service-grid, .service--featured { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
-}
-@media (max-width: 760px) {
-  .nav__links { display: none; }
-}
-@media (max-width: 640px) {
-  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .video-card__meta { left: 10px; right: 48px; bottom: 12px; }
-  .play { right: 10px; bottom: 10px; }
-  .stats { grid-template-columns: 1fr; gap: 40px; }
-  .steps { grid-template-columns: 1fr; }
-  .footer__inner { justify-content: center; text-align: center; }
-}
-@media (max-width: 480px) {
-  .hero__actions .btn { flex: 1 1 100%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .rec-dot--live, .reel { animation: none; }
-  .video-card video, .play { transition: none; }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:1ms!important;animation:none!important}
 }
 </style>
 </head>
 <body>
-<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="nav">
-  <a class="nav__brand" href="#topo"><span class="rec-dot" aria-hidden="true"></span>Saramago Work</a>
-  <nav aria-label="Seções">
-    <ul class="nav__links mono">
-      <li><a href="#videos">Vídeos</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#processo">Processo</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
-  <a class="btn-pill" href="https://wa.me/5567992129678" target="_blank" rel="noopener" data-whatsapp>WhatsApp</a>
+<header class="wrap bar-top">
+  <span>Saramago Work · Dourados, MS</span>
+  <a class="link" href="https://wa.me/5567992129678" target="_blank" rel="noopener">WhatsApp</a>
 </header>
 
-<main id="conteudo">
-  <section class="hero" id="topo" aria-labelledby="hero-title">
-    <div class="wrap hero__inner">
-      <div class="hero__copy">
-        <p class="mono eyebrow"><span class="rec-dot rec-dot--live" aria-hidden="true"></span>Rec · Vídeos verticais para Instagram</p>
-        <h1 class="hero__title" id="hero-title">Pode me chamar de <em>Saramago</em>.</h1>
-        <p class="hero__lead">Eu gravo e edito vídeos na vertical para o Instagram. É o que eu mais faço: do roteiro à postagem, tudo pensado para a tela do celular.</p>
-        <div class="hero__actions">
-          <a class="btn btn--lime" href="#videos"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg>Ver os vídeos</a>
-          <a class="btn btn--ghost" href="https://wa.me/5567992129678" target="_blank" rel="noopener" data-whatsapp>Chamar no WhatsApp</a>
+<main>
+  <section class="wrap hero" id="inicio" aria-labelledby="h1">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Renan Saramago · Publicitário · Dourados, MS</p>
+        <h1 class="h1" id="h1">Eu acho o problema do seu negócio. Depois eu resolvo.</h1>
+        <p class="lead">Vídeo vertical<a class="pv" href="#olhar" aria-label="Um take de uma noite de gravação — ver como eu olho"><video muted playsinline loop preload="none" poster="assets/videos/take-01.webp" data-take="01" tabindex="-1"></video></a>, IA e posicionamento são ferramentas. Eu escolho qual usar depois de entender o que está travando o seu negócio — e isso começa aqui:</p>
+      </div>
+      <div class="hero-ask">
+        <h2 class="q" id="q">Qual dessas frases podia ser sua?</h2>
+        <ol class="syms" aria-labelledby="q">
+          <li><a class="sym" href="#lt-01" role="button" aria-pressed="false" data-lt="lt-01" data-idx="01" data-frase="ninguém sabe que eu existo"><span class="dot" aria-hidden="true"></span><span class="idx" aria-hidden="true">01</span><span class="txt">“Ninguém sabe que eu existo.”</span></a></li>
+          <li><a class="sym" href="#lt-02" role="button" aria-pressed="false" data-lt="lt-02" data-idx="02" data-frase="eu posto, posto, e não vende"><span class="dot" aria-hidden="true"></span><span class="idx" aria-hidden="true">02</span><span class="txt">“Eu posto, posto, e não vende.”</span></a></li>
+          <li><a class="sym" href="#lt-03" role="button" aria-pressed="false" data-lt="lt-03" data-idx="03" data-frase="lancei um produto novo e ninguém entende o que é"><span class="dot" aria-hidden="true"></span><span class="idx" aria-hidden="true">03</span><span class="txt">“Lancei um produto novo e ninguém entende o que é.”</span></a></li>
+          <li><a class="sym" href="#lt-04" role="button" aria-pressed="false" data-lt="lt-04" data-idx="04" data-frase="minha marca parece menor do que o meu trabalho"><span class="dot" aria-hidden="true"></span><span class="idx" aria-hidden="true">04</span><span class="txt">“Minha marca parece menor do que o meu trabalho.”</span></a></li>
+          <li><a class="sym" href="#lt-05" role="button" aria-pressed="false" data-lt="lt-05" data-idx="05" data-frase="não sei dizer o que está errado — só sei que não anda"><span class="dot" aria-hidden="true"></span><span class="idx" aria-hidden="true">05</span><span class="txt">“Não sei dizer o que está errado. Só sei que não anda.”</span></a></li>
+        </ol>
+        <p class="helper">Pode marcar mais de uma. Ou só rolar e ler tudo ↓</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section leituras" id="leituras" aria-labelledby="lt-k">
+    <div class="wrap lts-grid">
+      <div class="lts-main">
+        <p class="kicker" id="lt-k">Minha leitura · frase por frase</p>
+        <p class="apoio">É o que eu penso antes de falar com você. Depois da conversa, muda — sempre muda um pouco.</p>
+
+        <div class="lts">
+          <details class="lt" id="lt-01" open>
+            <summary>
+              <span class="lt-label">01 · A partir de <q>Ninguém sabe que eu existo.</q></span>
+              <h2>Isso não é falta de conteúdo. É falta de alcance — e alcance em Dourados se resolve diferente de alcance em São Paulo.</h2>
+              <span class="lt-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="lt-body">
+              <div><span class="lbl">O que eu olho primeiro</span><p>Quem, num raio de dez minutos de carro, precisa do que você faz e nunca ouviu o seu nome. E o que aparece quando essa pessoa pesquisa o seu serviço no Google e no Instagram — se aparece alguém, quem é.</p></div>
+              <div><span class="lbl lbl--no">O que eu não faria</span><p>Te vender oito vídeos por mês antes de saber onde essa gente está.</p></div>
+              <div><span class="lbl">Ferramentas prováveis</span><p class="tools">anúncio local · vídeo vertical · perfil do Google · uma frase que diga o que você resolve</p></div>
+              <div class="lt-foot">
+                <button class="btn btn--mine" type="button" aria-pressed="false" data-sym="01">É o meu caso</button>
+                <a class="btn btn--wa" data-wa data-lt="lt-01" href="https://wa.me/5567992129678?text=Oi%2C%20Renan.%20Vi%20seu%20site.%20Meu%20caso%3A%20ningu%C3%A9m%20sabe%20que%20eu%20existo.%20D%C3%A1%20pra%20conversar%3F" target="_blank" rel="noopener">Mandar no WhatsApp →</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="lt" id="lt-02" open>
+            <summary>
+              <span class="lt-label">02 · A partir de <q>Eu posto, posto, e não vende.</q></span>
+              <h2>Você tem alcance sem pedido. Falta a oferta, não o vídeo.</h2>
+              <span class="lt-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="lt-body">
+              <div><span class="lbl">O que eu olho primeiro</span><p>O que cada post pede que a pessoa faça no final — quase sempre, nada. E pra quem ele fala: pra você, pro seu colega de profissão ou pra quem paga. A conta costuma fechar aí.</p></div>
+              <div><span class="lbl lbl--no">O que eu não faria</span><p>Trocar a edição. Um vídeo mais bonito com o mesmo pedido vazio vende a mesma coisa: nada.</p></div>
+              <div><span class="lbl">Ferramentas prováveis</span><p class="tools">oferta escrita em uma frase · roteiro dos dois primeiros segundos · vídeo vertical · o caminho até o seu WhatsApp</p></div>
+              <div class="lt-foot">
+                <button class="btn btn--mine" type="button" aria-pressed="false" data-sym="02">É o meu caso</button>
+                <a class="btn btn--wa" data-wa data-lt="lt-02" href="https://wa.me/5567992129678?text=Oi%2C%20Renan.%20Vi%20seu%20site.%20Meu%20caso%3A%20eu%20posto%2C%20posto%2C%20e%20n%C3%A3o%20vende.%20D%C3%A1%20pra%20conversar%3F" target="_blank" rel="noopener">Mandar no WhatsApp →</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="lt" id="lt-03" open>
+            <summary>
+              <span class="lt-label">03 · A partir de <q>Lancei um produto novo e ninguém entende o que é.</q></span>
+              <h2>É um problema de tradução: a pessoa ainda está perguntando “o que é isso?” e você já está vendendo.</h2>
+              <span class="lt-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="lt-body">
+              <div><span class="lbl">O que eu olho primeiro</span><p>Como você explica o produto em voz alta pra alguém que nunca viu. Gravo essa explicação, corto até caber em oito segundos e testo se alguém de fora entende sem você do lado.</p></div>
+              <div><span class="lbl lbl--no">O que eu não faria</span><p>Um vídeo bonito do produto girando. Produto novo morre de explicação ruim, não de falta de imagem.</p></div>
+              <div><span class="lbl">Ferramentas prováveis</span><p class="tools">demonstração em vídeo · imagem gerada por IA pra mostrar o que ainda não existe · uma frase de explicação · 3D quando o produto precisa ser visto por dentro</p></div>
+              <div class="lt-foot">
+                <button class="btn btn--mine" type="button" aria-pressed="false" data-sym="03">É o meu caso</button>
+                <a class="btn btn--wa" data-wa data-lt="lt-03" href="https://wa.me/5567992129678?text=Oi%2C%20Renan.%20Vi%20seu%20site.%20Meu%20caso%3A%20lancei%20um%20produto%20novo%20e%20ningu%C3%A9m%20entende%20o%20que%20%C3%A9.%20D%C3%A1%20pra%20conversar%3F" target="_blank" rel="noopener">Mandar no WhatsApp →</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="lt" id="lt-04" open>
+            <summary>
+              <span class="lt-label">04 · A partir de <q>Minha marca parece menor do que o meu trabalho.</q></span>
+              <h2>O trabalho evoluiu e a imagem ficou. Isso é desalinhamento, e ele custa preço.</h2>
+              <span class="lt-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="lt-body">
+              <div><span class="lbl">O que eu olho primeiro</span><p>As cinco coisas que a pessoa vê antes de te responder: foto de perfil, bio, os três últimos posts e a mensagem automática. Amador raramente é falta de equipamento. É falta de decisão: várias fontes, várias cores, várias vozes.</p></div>
+              <div><span class="lbl lbl--no">O que eu não faria</span><p>Começar pelo logo.</p></div>
+              <div><span class="lbl">Ferramentas prováveis</span><p class="tools">decidir uma voz e uma cor · reescrever a bio · um jeito de atender que combine com o preço · vídeo só depois disso</p></div>
+              <div class="lt-foot">
+                <button class="btn btn--mine" type="button" aria-pressed="false" data-sym="04">É o meu caso</button>
+                <a class="btn btn--wa" data-wa data-lt="lt-04" href="https://wa.me/5567992129678?text=Oi%2C%20Renan.%20Vi%20seu%20site.%20Meu%20caso%3A%20minha%20marca%20parece%20menor%20do%20que%20o%20meu%20trabalho.%20D%C3%A1%20pra%20conversar%3F" target="_blank" rel="noopener">Mandar no WhatsApp →</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="lt" id="lt-05" open>
+            <summary>
+              <span class="lt-label">05 · A partir de <q>Não sei dizer o que está errado. Só sei que não anda.</q></span>
+              <h2>Esse é o meu preferido.</h2>
+              <span class="lt-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="lt-body">
+              <div><span class="lbl">O que eu olho primeiro</span><p>Tudo, na ordem em que o seu cliente vê: como ele te acha, o que ele pergunta, quanto tempo você leva pra responder, por que ele some. Eu funciono assim: quando um problema me pega, eu não largo até achar onde ele começa. Às vezes é preço. Às vezes é atendimento. Às vezes é só que ninguém nunca explicou o seu negócio em uma frase.</p></div>
+              <div><span class="lbl lbl--no">O que eu não faria</span><p>Mandar orçamento de vídeo antes dessa conversa.</p></div>
+              <p>Uma conversa de 30 minutos, sem custo, pra achar o nome do problema. Você sai com a minha leitura por escrito, mesmo que não me contrate. Se eu não for a pessoa certa, eu digo quem é.</p>
+              <div><span class="lbl">Ferramentas prováveis</span><p class="tools">primeiro a conversa. A ferramenta vem depois.</p></div>
+              <div class="lt-foot">
+                <button class="btn btn--mine" type="button" aria-pressed="false" data-sym="05">É o meu caso</button>
+                <a class="btn btn--wa" data-wa data-lt="lt-05" href="https://wa.me/5567992129678?text=Oi%2C%20Renan.%20Vi%20seu%20site.%20Meu%20caso%3A%20n%C3%A3o%20sei%20dizer%20o%20que%20est%C3%A1%20errado%20%E2%80%94%20s%C3%B3%20sei%20que%20n%C3%A3o%20anda.%20D%C3%A1%20pra%20conversar%3F" target="_blank" rel="noopener">Mandar no WhatsApp →</a>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
+      <aside class="card" id="card" aria-label="Seu caso" hidden>
+        <span class="lbl">Seu caso</span>
+        <ul id="card-list"><li class="muted">nenhuma frase marcada ainda</li></ul>
+        <a class="btn btn--wa" data-wa href="https://wa.me/5567992129678?text=Oi%2C%20Renan.%20Vi%20seu%20site.%20Meu%20caso%3A%20ainda%20n%C3%A3o%20sei%20dizer%20%E2%80%94%20s%C3%B3%20sei%20que%20n%C3%A3o%20anda.%20Sou%20de%20Dourados.%20D%C3%A1%20pra%20conversar%3F" target="_blank" rel="noopener">Mandar no WhatsApp →</a>
+        <a class="adj" href="#mensagem">ajustar a mensagem ↓</a>
+      </aside>
+    </div>
+  </section>
 
-      <div class="hero__reels" aria-hidden="true">
-        <figure class="reel">
-          <video muted loop playsinline preload="none" poster="assets/videos/take-02.webp" data-src="assets/videos/take-02.mp4"></video>
-          <span class="chip"><span class="rec-dot"></span>REC</span>
-        </figure>
-        <figure class="reel">
-          <video muted loop playsinline preload="none" poster="assets/videos/take-01.webp" data-src="assets/videos/take-01.mp4"></video>
-          <span class="chip mono">9:16</span>
-        </figure>
-        <figure class="reel">
-          <video muted loop playsinline preload="none" poster="assets/videos/take-03.webp" data-src="assets/videos/take-03.mp4"></video>
-          <span class="chip mono">4K</span>
-        </figure>
-        <p class="hero__spec mono">3840×2160 · 23,976 fps · 9:16</p>
+  <section class="section dark" id="olhar" aria-labelledby="olhar-t">
+    <div class="wrap">
+      <div class="olhar-head">
+        <p class="kicker">Uma noite de gravação · sem métrica</p>
+        <h2 class="h2" id="olhar-t" style="margin-top:10px">Não vou te mostrar resultado que eu não posso provar aqui. Vou te mostrar como eu penso.</h2>
+        <p>Oito takes de uma noite: gente plantando mudas numa horta vertical. Sem cliente nomeado, sem número. Só as decisões que eu tomei no quadro — e é o mesmo olhar que vai pro seu negócio.</p>
       </div>
-    </div>
-    <p class="wordmark" aria-hidden="true">SARAMAGO</p>
-  </section>
-
-  <section class="section intro" aria-labelledby="intro-title">
-    <div class="wrap">
-      <p class="section-label mono">Feito para o feed</p>
-      <h2 class="h2" id="intro-title">Seu cliente assiste no celular. <span class="mark">Na vertical.</span></h2>
-      <p class="intro__body">Cada vídeo sai pensado para a tela do Instagram: enquadramento 9:16, luz de cinema e edição no ritmo de quem está rolando o feed. Da ideia à postagem, eu cuido de tudo.</p>
-      <a class="text-link mono" href="#videos">Ver os vídeos →</a>
-    </div>
-  </section>
-
-  <section class="section band-dark" id="videos" aria-labelledby="videos-title">
-    <div class="wrap">
-      <header class="videos__head">
-        <p class="section-label mono">Portfólio · 9:16</p>
-        <h2 class="h2" id="videos-title">Vídeos na vertical</h2>
-        <p class="videos__sub">Toque em um vídeo para assistir em tela cheia.</p>
-      </header>
-
-      <ul class="video-grid">
-        <li>
-          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Torre iluminada">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-01.webp" data-src="assets/videos/take-01.mp4" data-full="assets/videos/take-01-hd.mp4"></video>
-            <span class="chip mono">Take 01</span>
-            <span class="video-card__meta"><span class="video-card__title">Torre iluminada</span><span class="video-card__info mono">00:06 · 4K</span></span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
-          </button>
-        </li>
-        <li>
-          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Luz de cena">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-02.webp" data-src="assets/videos/take-02.mp4" data-full="assets/videos/take-02-hd.mp4"></video>
-            <span class="chip mono">Take 02</span>
-            <span class="video-card__meta"><span class="video-card__title">Luz de cena</span><span class="video-card__info mono">00:06 · 4K</span></span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
-          </button>
-        </li>
-        <li>
-          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Detalhe nas mãos">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-03.webp" data-src="assets/videos/take-03.mp4" data-full="assets/videos/take-03-hd.mp4"></video>
-            <span class="chip mono">Take 03</span>
-            <span class="video-card__meta"><span class="video-card__title">Detalhe nas mãos</span><span class="video-card__info mono">00:06 · 4K</span></span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
-          </button>
-        </li>
-        <li>
-          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Mãos na terra">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-04.webp" data-src="assets/videos/take-04.mp4" data-full="assets/videos/take-04-hd.mp4"></video>
-            <span class="chip mono">Take 04</span>
-            <span class="video-card__meta"><span class="video-card__title">Mãos na terra</span><span class="video-card__info mono">00:06 · 4K</span></span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
-          </button>
-        </li>
-        <li>
-          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Terra e mudas">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-05.webp" data-src="assets/videos/take-05.mp4" data-full="assets/videos/take-05-hd.mp4"></video>
-            <span class="chip mono">Take 05</span>
-            <span class="video-card__meta"><span class="video-card__title">Terra e mudas</span><span class="video-card__info mono">00:06 · 4K</span></span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
-          </button>
-        </li>
-        <li>
-          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Plantio no vaso">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-06.webp" data-src="assets/videos/take-06.mp4" data-full="assets/videos/take-06-hd.mp4"></video>
-            <span class="chip mono">Take 06</span>
-            <span class="video-card__meta"><span class="video-card__title">Plantio no vaso</span><span class="video-card__info mono">00:06 · 4K</span></span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
-          </button>
-        </li>
-        <li>
-          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Textura">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-07.webp" data-src="assets/videos/take-07.mp4" data-full="assets/videos/take-07-hd.mp4"></video>
-            <span class="chip mono">Take 07</span>
-            <span class="video-card__meta"><span class="video-card__title">Textura</span><span class="video-card__info mono">00:06 · 4K</span></span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
-          </button>
-        </li>
-        <li>
-          <button class="video-card" type="button" aria-label="Assistir em tela cheia: Horta vertical">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-08.webp" data-src="assets/videos/take-08.mp4" data-full="assets/videos/take-08-hd.mp4"></video>
-            <span class="chip mono">Take 08</span>
-            <span class="video-card__meta"><span class="video-card__title">Horta vertical</span><span class="video-card__info mono">00:06 · 4K</span></span>
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg></span>
-          </button>
-        </li>
-      </ul>
-
-      <ul class="stats">
-        <li><span class="stat__value">4K</span><span class="stat__label">Captação</span></li>
-        <li><span class="stat__value">23,976</span><span class="stat__label">Quadros por segundo</span></li>
-        <li><span class="stat__value">9:16</span><span class="stat__label">Formato do feed</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section services" id="servicos" aria-labelledby="servicos-title">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="section-label mono">Serviços</p>
-        <h2 class="h2" id="servicos-title">Do roteiro ao post</h2>
-      </header>
-
-      <div class="service-grid">
-        <article class="service service--featured">
-          <div>
-            <p class="service__num mono">01 · O que eu mais faço</p>
-            <h3 class="service__title">Reels e vídeos verticais</h3>
-            <p class="service__body">Roteiro, captação e edição de vídeos 9:16 para o Instagram, com a cara da sua marca e o ritmo do feed.</p>
-            <ul class="badges">
-              <li class="badge">Roteiro</li>
-              <li class="badge">Captação</li>
-              <li class="badge">Edição</li>
-            </ul>
+      <div class="olhar-grid">
+        <div class="stage-wrap">
+          <div class="stage" aria-hidden="true">
+            <video class="tk front" muted playsinline loop preload="none" poster="assets/videos/take-03.webp" width="432" height="768"></video>
+            <video class="tk" muted playsinline loop preload="none" width="432" height="768"></video>
           </div>
-          <div class="service__media">
-            <video muted loop playsinline preload="none" poster="assets/videos/take-07.webp" data-src="assets/videos/take-07.mp4" aria-hidden="true"></video>
-          </div>
-        </article>
-        <article class="service">
-          <p class="service__num mono">02</p>
-          <h3 class="service__title">Conteúdo do mês</h3>
-          <p class="service__body">Um calendário de vídeos pensado dia a dia, para a sua marca aparecer com constância.</p>
-        </article>
-        <article class="service">
-          <p class="service__num mono">03</p>
-          <h3 class="service__title">Anúncios</h3>
-          <p class="service__body">Eu monto e subo os anúncios com os seus vídeos. A verba de mídia fica à parte.</p>
-        </article>
-        <article class="service">
-          <p class="service__num mono">04</p>
-          <h3 class="service__title">Sites</h3>
-          <p class="service__body">Uma página rápida para receber quem chega pelo Google e pelo Instagram.</p>
-        </article>
+        </div>
+        <ol class="notes">
+          <li class="note" data-take="03"><span class="note-n">1</span><span class="lead-line" aria-hidden="true"></span><span class="note-t">Take 03 · Detalhe nas mãos</span><p>A mão entra antes do produto. Quem compra horta compra o gesto, não o tubo. No seu negócio é igual: a pessoa confia em quem faz antes de confiar no que é feito.</p></li>
+          <li class="note" data-take="05"><span class="note-n">2</span><span class="lead-line" aria-hidden="true"></span><span class="note-t">Take 05 · Terra e mudas</span><p>Terra em cima de jornal, na grama. Deixei. Quem planta faz sujeira; limpar a cena era mentir — e mentira bonita a gente sente, mesmo sem saber dizer onde.</p></li>
+          <li class="note" data-take="02"><span class="note-n">3</span><span class="lead-line" aria-hidden="true"></span><span class="note-t">Take 02 · Luz de cena</span><p>Um ponto de luz só. Duas luzes contam duas histórias, e quem está rolando o feed só tem tempo pra uma.</p></li>
+          <li class="note" data-take="07"><span class="note-n">4</span><span class="lead-line" aria-hidden="true"></span><span class="note-t">Take 07 · Textura</span><p>Onde entra a IA: antes de gastar uma noite, eu testo vinte enquadramentos em modelo de imagem e descarto dezenove. Onde ela não entra: na mão na terra.</p></li>
+          <li class="note" data-take="08"><span class="note-n">5</span><span class="lead-line" aria-hidden="true"></span><span class="note-t">Take 08 · Horta vertical</span><p>Produto branco, noite preta. Não escolhi a noite porque é bonita: é a única hora em que o tubo vira a coisa mais clara do quadro. O plano geral fica pro fim — primeiro a curiosidade.</p></li>
+        </ol>
       </div>
+      <details class="takes">
+          <summary>Ver os oito takes</summary>
+          <p class="vh" id="strip-hint">Use as setas para navegar entre os takes.</p>
+          <ul class="strip" aria-describedby="strip-hint" aria-label="Os oito takes">
+            <li class="take"><figure><div class="tk-box"><video class="lz" data-take="01" muted playsinline loop preload="none" width="432" height="768" aria-label="Take 01: Torre iluminada"></video><noscript><video controls preload="none" poster="assets/videos/take-01.webp" src="assets/videos/take-01.mp4" width="432" height="768"></video></noscript></div><figcaption><span class="cap-t">01 · Torre iluminada</span><span class="cap-p">Uma luz. Uma.</span></figcaption></figure></li>
+            <li class="take"><figure><div class="tk-box"><video class="lz" data-take="02" muted playsinline loop preload="none" width="432" height="768" aria-label="Take 02: Luz de cena"></video><noscript><video controls preload="none" poster="assets/videos/take-02.webp" src="assets/videos/take-02.mp4" width="432" height="768"></video></noscript></div><figcaption><span class="cap-t">02 · Luz de cena</span><span class="cap-p">Um pedestal, uma fonte. Não precisa de mais pra parecer cinema.</span></figcaption></figure></li>
+            <li class="take"><figure><div class="tk-box"><video class="lz" data-take="03" muted playsinline loop preload="none" width="432" height="768" aria-label="Take 03: Detalhe nas mãos"></video><noscript><video controls preload="none" poster="assets/videos/take-03.webp" src="assets/videos/take-03.mp4" width="432" height="768"></video></noscript></div><figcaption><span class="cap-t">03 · Detalhe nas mãos</span><span class="cap-p">Mão antes de rosto.</span></figcaption></figure></li>
+            <li class="take"><figure><div class="tk-box"><video class="lz" data-take="04" muted playsinline loop preload="none" width="432" height="768" aria-label="Take 04: Mãos na terra"></video><noscript><video controls preload="none" poster="assets/videos/take-04.webp" src="assets/videos/take-04.mp4" width="432" height="768"></video></noscript></div><figcaption><span class="cap-t">04 · Mãos na terra</span><span class="cap-p">Sujeira é textura.</span></figcaption></figure></li>
+            <li class="take"><figure><div class="tk-box"><video class="lz" data-take="05" muted playsinline loop preload="none" width="432" height="768" aria-label="Take 05: Terra e mudas"></video><noscript><video controls preload="none" poster="assets/videos/take-05.webp" src="assets/videos/take-05.mp4" width="432" height="768"></video></noscript></div><figcaption><span class="cap-t">05 · Terra e mudas</span><span class="cap-p">O jornal na grama: o detalhe que ninguém pediu e todo mundo sente.</span></figcaption></figure></li>
+            <li class="take"><figure><div class="tk-box"><video class="lz" data-take="06" muted playsinline loop preload="none" width="432" height="768" aria-label="Take 06: Plantio no vaso"></video><noscript><video controls preload="none" poster="assets/videos/take-06.webp" src="assets/videos/take-06.mp4" width="432" height="768"></video></noscript></div><figcaption><span class="cap-t">06 · Plantio no vaso</span><span class="cap-p">O produto em uso, nunca só o produto.</span></figcaption></figure></li>
+            <li class="take"><figure><div class="tk-box"><video class="lz" data-take="07" muted playsinline loop preload="none" width="432" height="768" aria-label="Take 07: Textura"></video><noscript><video controls preload="none" poster="assets/videos/take-07.webp" src="assets/videos/take-07.mp4" width="432" height="768"></video></noscript></div><figcaption><span class="cap-t">07 · Textura</span><span class="cap-p">O tubo de perto. Quem vai comprar quer saber do material.</span></figcaption></figure></li>
+            <li class="take"><figure><div class="tk-box"><video class="lz" data-take="08" muted playsinline loop preload="none" width="432" height="768" aria-label="Take 08: Horta vertical"></video><noscript><video controls preload="none" poster="assets/videos/take-08.webp" src="assets/videos/take-08.mp4" width="432" height="768"></video></noscript></div><figcaption><span class="cap-t">08 · Horta vertical</span><span class="cap-p">O plano geral fica pro fim.</span></figcaption></figure></li>
+          </ul>
+      </details>
     </div>
   </section>
 
-  <section class="section process" id="processo" aria-labelledby="processo-title">
+  <section class="section ferr" id="ferramentas" aria-labelledby="ferr-t">
     <div class="wrap">
-      <header class="section-head">
-        <p class="section-label mono">Processo</p>
-        <h2 class="h2" id="processo-title">Como eu trabalho</h2>
-      </header>
-      <ol class="steps">
-        <li class="step">
-          <span class="step__num mono">01</span>
-          <h3 class="step__title">Roteiro</h3>
-          <p class="step__body">Ideia, gancho e sequência de cenas antes de ligar a câmera.</p>
-        </li>
-        <li class="step">
-          <span class="step__num mono">02</span>
-          <h3 class="step__title">Captação</h3>
-          <p class="step__body">Câmera, luz e áudio no lugar, já pensando no enquadramento vertical.</p>
-        </li>
-        <li class="step">
-          <span class="step__num mono">03</span>
-          <h3 class="step__title">Edição</h3>
-          <p class="step__body">Cortes no ritmo do feed, cor e acabamento.</p>
-        </li>
-        <li class="step">
-          <span class="step__num mono">04</span>
-          <h3 class="step__title">Entrega</h3>
-          <p class="step__body">Vídeo pronto para postar, com capa.</p>
-        </li>
-      </ol>
+      <p class="kicker">As ferramentas · na ordem certa</p>
+      <h2 class="h2" id="ferr-t">Vídeo vertical, IA e posicionamento. Nessa ordem de frequência — nunca nessa ordem de decisão.</h2>
+      <div class="tools-grid">
+        <div class="tool"><span class="lbl">Vídeo vertical</span><p>É o que eu mais uso, porque é o que mais gente vê. Não é o produto: é o jeito mais rápido de colocar uma ideia certa na frente da pessoa certa. Gravo, edito e, quando faz sentido, te ensino a gravar com o seu celular.</p></div>
+        <div class="tool"><span class="lbl">IA</span><p>Uso modelos de vídeo, imagem, voz e texto todo dia, na semana em que saem. Servem pra testar vinte versões antes de gravar uma, mostrar um produto que ainda não existe, encurtar caminho. Não servem pra substituir o que precisa ser real: a sua cara, a sua voz, a sua loja.</p></div>
+        <div class="tool"><span class="lbl">Posicionamento</span><p>Às vezes o trabalho inteiro é uma frase: pra quem você é a melhor opção da cidade, e por quê. Quando a frase está certa, o vídeo fica barato. Quando está errada, não tem edição que salve.</p></div>
+      </div>
+      <div class="quem">
+        <span class="lbl">Quem responde</span>
+        <p>Renan Saramago. Publicitário, Dourados, MS. Gosto de lentes, 3D, VFX e de entender as coisas mais fundo do que precisava — leio o manual inteiro, o paper do modelo que saiu ontem, as avaliações do seu concorrente no Google. Tenho TDAH: no trabalho, isso vira hiperfoco no seu problema até ele ter nome. Quem responde no WhatsApp sou eu.</p>
+      </div>
     </div>
   </section>
 
-  <section class="band-dark" id="contato" aria-labelledby="contato-title">
-    <div class="wrap contact">
-      <p class="mono eyebrow"><span class="rec-dot" aria-hidden="true"></span>Contato · Dourados, MS</p>
-      <h2 class="contact__title" id="contato-title">Vamos gravar?</h2>
-      <p class="contact__body">Me conta o que você precisa. Eu respondo pelo WhatsApp.</p>
-      <div class="contact__actions">
-        <a class="btn btn--lime" href="https://wa.me/5567992129678" target="_blank" rel="noopener" data-whatsapp>Chamar no WhatsApp</a>
-        <a class="btn btn--ghost" href="#" target="_blank" rel="noopener" data-instagram hidden>Instagram</a>
+  <section class="section msg" id="mensagem" aria-labelledby="msg-t">
+    <div class="wrap msg-inner">
+      <p class="kicker">Sua mensagem</p>
+      <h2 class="h2" id="msg-t">Do jeito que eu vou receber.</h2>
+      <p class="intro">Você não precisa saber nomear o problema. Nomear é a minha parte. Marca as frases lá em cima, ou manda assim mesmo — eu leio, respondo eu mesmo e a gente marca a conversa.</p>
+      <textarea class="ta" id="ta" rows="4" aria-label="Mensagem que será enviada no WhatsApp" spellcheck="false">Oi, Renan. Vi seu site. Meu caso: ainda não sei dizer — só sei que não anda. Sou de Dourados. Dá pra conversar?</textarea>
+      <p class="ta-hint">Pode editar antes de mandar.</p>
+      <div class="fields">
+        <label class="field">Seu negócio<input id="neg" type="text" placeholder="ex.: clínica de estética" autocomplete="organization"></label>
+        <label class="field">Cidade<input id="cid" type="text" value="Dourados" autocomplete="address-level2"></label>
       </div>
+      <a class="btn btn--wa btn--big" id="wa" data-wa href="https://wa.me/5567992129678?text=Oi%2C%20Renan.%20Vi%20seu%20site.%20Meu%20caso%3A%20ainda%20n%C3%A3o%20sei%20dizer%20%E2%80%94%20s%C3%B3%20sei%20que%20n%C3%A3o%20anda.%20Sou%20de%20Dourados.%20D%C3%A1%20pra%20conversar%3F" target="_blank" rel="noopener">Mandar no WhatsApp</a>
+      <p class="alt">Prefere olhar antes? <a href="https://instagram.com/saramagowork" target="_blank" rel="noopener">@saramagowork</a> · <a href="https://wa.me/5567992129678" target="_blank" rel="noopener">(67) 99212-9678</a></p>
     </div>
   </section>
 </main>
 
-<footer class="footer band-dark">
-  <div class="wrap footer__inner mono">
-    <span>© <span data-year>2026</span> Saramago Work</span>
-    <span>Vídeos verticais para Instagram</span>
-    <a href="#topo">Voltar ao topo ↑</a>
-  </div>
+<footer class="wrap foot">
+  <span>Saramago Work · Renan Saramago · Dourados, MS</span>
+  <a href="https://wa.me/5567992129678" target="_blank" rel="noopener">WhatsApp (67) 99212-9678</a>
+  <a href="https://instagram.com/saramagowork" target="_blank" rel="noopener">@saramagowork</a>
 </footer>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vídeo em tela cheia" hidden>
-  <div class="lightbox__stage">
-    <video class="lightbox__video" muted loop playsinline controls></video>
-    <p class="lightbox__caption mono"><span data-lb-title></span><span data-lb-count></span></p>
-  </div>
-  <button class="icon-btn lightbox__close" type="button" aria-label="Fechar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-  <button class="icon-btn lightbox__prev" type="button" aria-label="Vídeo anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  <button class="icon-btn lightbox__next" type="button" aria-label="Próximo vídeo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="bar" aria-hidden="true">
+  <span class="bar-case" id="bar-case"></span>
+  <a href="#mensagem">Mandar →</a>
 </div>
+<p class="vh" id="live" aria-live="polite"></p>
 
 <script>
 (() => {
-  // Contatos: preencha o Instagram para o botão aparecer no rodapé.
-  const SITE = {
-    whatsapp: "5567992129678",
-    whatsappText: "Olá, Saramago! Vim pelo site e quero conversar sobre vídeos.",
-    instagram: ""
-  };
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const C = navigator.connection || {};
+  const SAVE = C.saveData === true;
+  const DESK = matchMedia('(min-width: 900px)').matches;
+  const HD = DESK && devicePixelRatio >= 1.5 && !SAVE && !/2g|3g/.test(C.effectiveType || '');
+  const AUTO = !RM && !SAVE;
+  const WA = 'https://wa.me/5567992129678?text=';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-  const waHref = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(SITE.whatsappText)}`;
-  document.querySelectorAll("[data-whatsapp]").forEach((a) => { a.href = waHref; });
-  document.querySelectorAll("[data-instagram]").forEach((a) => {
-    if (SITE.instagram) { a.href = SITE.instagram; a.hidden = false; }
+  /* ---------- frases ↔ leituras ↔ mensagem ---------- */
+  const syms = $$('.sym'), lts = $$('.lt');
+  const live = $('#live'), barCase = $('#bar-case');
+  const ta = $('#ta'), neg = $('#neg'), cid = $('#cid');
+  const card = $('#card'), cardList = $('#card-list');
+  card.hidden = false;
+  const sel = () => syms.filter((s) => s.getAttribute('aria-pressed') === 'true');
+
+  function setSym(s, on) {
+    s.setAttribute('aria-pressed', String(on));
+    $$(`.btn--mine[data-sym="${s.dataset.idx}"]`).forEach((b) => b.setAttribute('aria-pressed', String(on)));
+  }
+  function buildMsg() {
+    const on = sel();
+    const frases = on.map((s) => s.dataset.frase);
+    const caso = frases.length ? frases.join(frases.length > 3 ? ', ' : '; ') : 'ainda não sei dizer — só sei que não anda';
+    const n = neg.value.trim(), c = cid.value.trim() || 'Dourados';
+    const quem = n ? `Meu negócio: ${n}, em ${c}.` : `Sou de ${c}.`;
+    ta.value = `Oi, Renan. Vi seu site. Meu caso: ${caso}. ${quem} Dá pra conversar?`;
+    applyHref();
+    cardList.innerHTML = '';
+    if (on.length) on.forEach((s) => { const li = document.createElement('li'); li.textContent = $('.txt', s).textContent; cardList.appendChild(li); });
+    else { const li = document.createElement('li'); li.className = 'muted'; li.textContent = 'nenhuma frase marcada ainda'; cardList.appendChild(li); }
+  }
+  function applyHref() {
+    const href = WA + encodeURIComponent(ta.value.trim());
+    $$('a[data-wa]').forEach((a) => { a.href = href; });
+    if (!('fieldSizing' in ta.style)) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
+  }
+  function sync(scrollTo, announce) {
+    const on = sel();
+    document.body.classList.toggle('has-case', on.length > 0);
+    lts.forEach((d) => { const mine = on.some((x) => x.dataset.lt === d.id); d.classList.toggle('is-mine', mine); d.open = on.length ? mine : true; });
+    buildMsg();
+    const idxs = on.map((x) => x.dataset.idx).join(', ');
+    barCase.innerHTML = on.length ? `Seu caso: <b>${idxs}</b>` : '';
+    if (announce) live.textContent = on.length ? `Seu caso: ${idxs}` : 'Nenhuma frase marcada';
+    if (scrollTo) $('#' + scrollTo).scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' });
+  }
+  syms.forEach((s) => {
+    s.addEventListener('click', (e) => { e.preventDefault(); const on = s.getAttribute('aria-pressed') !== 'true'; setSym(s, on); requestAnimationFrame(() => sync(on ? s.dataset.lt : null, true)); });
+    s.addEventListener('keydown', (e) => { if (e.key === ' ') { e.preventDefault(); s.click(); } });
   });
-  document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
+  $$('.btn--mine').forEach((b) => b.addEventListener('click', () => { const s = syms.find((x) => x.dataset.idx === b.dataset.sym); setSym(s, s.getAttribute('aria-pressed') !== 'true'); requestAnimationFrame(() => sync(null, true)); }));
+  $$('a[data-wa][data-lt]').forEach((a) => a.addEventListener('click', () => { const s = syms.find((x) => x.dataset.lt === a.dataset.lt); if (s.getAttribute('aria-pressed') !== 'true') { setSym(s, true); sync(null, false); } }));
+  [neg, cid].forEach((i) => i.addEventListener('input', buildMsg));
+  ta.addEventListener('input', applyHref);
+  sync(null, false);
+  new IntersectionObserver(([e]) => document.body.classList.toggle('at-msg', e.isIntersecting), { threshold: 0.2 }).observe($('#mensagem'));
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  /* ---------- vídeo: lazy, mudo, só visível ---------- */
+  function src(v, t) {
+    if (v.dataset.loaded === t) return;
+    v.dataset.loaded = t;
+    v.poster = `assets/videos/take-${t}.webp`;
+    v.src = `assets/videos/take-${t}${HD ? '-hd' : ''}.mp4`;
+    v.muted = true;
+    v.load();
+  }
+  function addPlayBtn(v) {
+    const host = v.parentElement;
+    if (!host || $('.play', host)) return;
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'play'; b.textContent = 'reproduzir take';
+    b.addEventListener('click', () => {
+      if (v.paused) { src(v, v.dataset.take || v.dataset.loaded); v.loop = false; v.play().catch(() => {}); b.textContent = 'pausar take'; }
+      else { v.pause(); b.textContent = 'reproduzir take'; }
+    });
+    v.addEventListener('ended', () => { b.textContent = 'reproduzir take'; });
+    host.appendChild(b);
+  }
+  const near = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { src(e.target, e.target.dataset.take); near.unobserve(e.target); } }), { rootMargin: '200px 0px' });
+  const vis = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.intersectionRatio >= 0.5) { if (v.dataset.loaded) v.play().catch(() => {}); } else v.pause(); }), { threshold: [0, 0.5] });
 
-  // Vídeos só carregam perto da tela e só tocam enquanto aparecem.
-  // Em conexão lenta (2G/3G) ou com economia de dados, ficam só as capas até alguém abrir a tela cheia.
-  const connection = navigator.connection;
-  const slowNetwork = Boolean(connection && (connection.saveData || /2g|3g/.test(connection.effectiveType || "")));
-  const observer = new IntersectionObserver((entries) => {
-    for (const { target: video, isIntersecting } of entries) {
-      if (isIntersecting) {
-        if (!video.getAttribute("src")) video.src = video.dataset.src;
-        video.muted = true;
-        video.play().catch(() => {});
-      } else if (!video.paused) {
-        video.pause();
+  const hero = $('.pv video');
+  if (AUTO) addEventListener('load', () => { src(hero, '01'); vis.observe(hero); });
+
+  document.addEventListener('visibilitychange', () => { if (document.hidden) $$('video').forEach((v) => v.pause()); });
+
+  /* ---------- stage: crossfade sincronizado com as notas ---------- */
+  const vids = $$('.stage .tk'); let front = 0, pending = null, stageVisible = false;
+  const stripOpen = () => $('.takes').open;
+  function show(t) {
+    const f = vids[front], b = vids[1 - front];
+    if (f.dataset.loaded === t) { pending = null; return; }
+    pending = t; src(b, t);
+    const go = () => {
+      if (pending !== t) return;
+      b.classList.add('front'); f.classList.remove('front'); f.pause(); front = 1 - front; pending = null;
+      if (stageVisible && !stripOpen()) b.play().catch(() => {});
+    };
+    if (b.readyState >= 3) go(); else b.addEventListener('canplay', go, { once: true });
+  }
+  const notes = $$('.note');
+  const stage = $('.stage');
+  if (AUTO) {
+    const noteIO = new IntersectionObserver((es) => {
+      const hit = es.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!hit) return;
+      notes.forEach((n) => n.classList.toggle('on', n === hit.target));
+      show(hit.target.dataset.take);
+    }, { rootMargin: DESK ? '-35% 0px -35% 0px' : '-56% 0px 0px 0px', threshold: [0, 0.25, 0.5, 0.75] });
+    notes.forEach((n) => noteIO.observe(n));
+    new IntersectionObserver(([e]) => {
+      stageVisible = e.isIntersecting;
+      const v = vids[front];
+      if (e.isIntersecting) { if (!v.dataset.loaded) show(notes[0].dataset.take); else if (!stripOpen()) v.play().catch(() => {}); }
+      else vids.forEach((x) => x.pause());
+    }, { threshold: 0.2 }).observe(stage);
+  } else {
+    vids[0].dataset.take = '03';
+    src(vids[0], '03');
+    addPlayBtn(vids[0]);
+    notes.forEach((n) => n.classList.add('on'));
+  }
+
+  /* ---------- fita: snap + teclado ---------- */
+  const strip = $('.strip'); strip.tabIndex = 0;
+  const takes = $$('.take', strip);
+  const takesBox = $('.takes');
+  let centerTick = false;
+  function centerStrip() {
+    centerTick = false;
+    const r = strip.getBoundingClientRect(), mid = DESK ? r.left + 110 : r.left + r.width / 2;
+    let best = null, bd = Infinity;
+    takes.forEach((li) => { const b = li.getBoundingClientRect(); const d = Math.abs(b.left + b.width / 2 - mid); if (d < bd) { bd = d; best = li; } });
+    takes.forEach((li) => {
+      const on = li === best, v = $('video.lz', li);
+      li.classList.toggle('is-center', on);
+      if (on && AUTO && takesBox.open && v.dataset.loaded) v.play().catch(() => {}); else v.pause();
+    });
+  }
+  const stripNear = new IntersectionObserver((es) => es.forEach((e) => {
+    if (!e.isIntersecting) return;
+    src(e.target, e.target.dataset.take); stripNear.unobserve(e.target);
+    if (AUTO && e.target.closest('.take').classList.contains('is-center')) e.target.play().catch(() => {});
+  }), { root: strip, rootMargin: '0px 240px' });
+  takesBox.addEventListener('toggle', () => {
+    if (takesBox.open) {
+      vids.forEach((v) => v.pause());
+      if (!takesBox.dataset.ready) {
+        takesBox.dataset.ready = '1';
+        takes.forEach((li) => { const v = $('video.lz', li); if (AUTO) stripNear.observe(v); else { src(v, v.dataset.take); addPlayBtn(v); } });
       }
+      centerStrip();
+    } else {
+      takes.forEach((li) => $('video.lz', li).pause());
+      if (AUTO && stageVisible) vids[front].play().catch(() => {});
     }
-  }, { rootMargin: "100px 0px", threshold: 0.15 });
-  if (!reduceMotion.matches && !slowNetwork) {
-    document.querySelectorAll("video[data-src]").forEach((video) => observer.observe(video));
-  }
-
-  // Tela cheia
-  const cards = [...document.querySelectorAll(".video-card")];
-  const lightbox = document.getElementById("lightbox");
-  const lbVideo = lightbox.querySelector(".lightbox__video");
-  const lbTitle = lightbox.querySelector("[data-lb-title]");
-  const lbCount = lightbox.querySelector("[data-lb-count]");
-  const closeBtn = lightbox.querySelector(".lightbox__close");
-  const pad = (n) => String(n).padStart(2, "0");
-  let current = 0;
-  let lastFocus = null;
-
-  function show(index) {
-    current = (index + cards.length) % cards.length;
-    const card = cards[current];
-    const source = card.querySelector("video");
-    lbVideo.poster = source.poster;
-    lbVideo.src = source.dataset.full || source.dataset.src;
-    lbTitle.textContent = card.querySelector(".video-card__title").textContent;
-    lbCount.textContent = `${pad(current + 1)} / ${pad(cards.length)}`;
-    lbVideo.play().catch(() => {});
-  }
-
-  function open(index) {
-    lastFocus = document.activeElement;
-    lightbox.hidden = false;
-    document.body.style.overflow = "hidden";
-    show(index);
-    closeBtn.focus();
-  }
-
-  function close() {
-    lightbox.hidden = true;
-    lbVideo.pause();
-    lbVideo.removeAttribute("src");
-    lbVideo.load();
-    document.body.style.overflow = "";
-    if (lastFocus) lastFocus.focus();
-  }
-
-  cards.forEach((card, i) => card.addEventListener("click", () => open(i)));
-  closeBtn.addEventListener("click", close);
-  lightbox.querySelector(".lightbox__prev").addEventListener("click", () => show(current - 1));
-  lightbox.querySelector(".lightbox__next").addEventListener("click", () => show(current + 1));
-  lightbox.addEventListener("click", (event) => { if (event.target === lightbox) close(); });
-
-  document.addEventListener("keydown", (event) => {
-    if (lightbox.hidden) return;
-    if (event.key === "Escape") close();
-    else if (event.key === "ArrowLeft") show(current - 1);
-    else if (event.key === "ArrowRight") show(current + 1);
-    else if (event.key === "Tab") {
-      const focusable = [...lightbox.querySelectorAll("button, video[controls]")];
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-    }
+  });
+  strip.addEventListener('scroll', () => { if (!centerTick) { centerTick = true; requestAnimationFrame(centerStrip); } }, { passive: true });
+  strip.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); strip.scrollBy({ left: (e.key === 'ArrowRight' ? 1 : -1) * 232, behavior: RM ? 'auto' : 'smooth' }); }
   });
 })();
 </script>
