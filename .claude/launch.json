@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site-saramago",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "G:\\_1 - CLIENTES 2025\\2026\\RENAN\\SITE 2026\\.claude\\serve.ps1"
+      ],
+      "port": 8765,
+      "autoPort": true
+    }
+  ]
+}

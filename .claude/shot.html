@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Captura</title>
+<style>html, body { margin: 0; background: #fff; overflow: hidden; } iframe { display: block; border: 0; }</style>
+<body>
+<script>
+  // Página auxiliar só para capturas: empilha n iframes do tamanho da tela, cada um rolado para um trecho da página.
+  // Uso: /.claude/shot.html?p=/veed/&w=390&h=844&n=10   (p = página, w/h = tela, n = quantos trechos)
+  //      /.claude/shot.html?p=/&w=1440&h=900&s=%23videos&o=0  (s = seletor, o = deslocamento, y = rolagem fixa)
+  const params = new URLSearchParams(location.search);
+  const w = Number(params.get("w") || 1440), h = Number(params.get("h") || 900), n = Number(params.get("n") || 1);
+  for (let i = 0; i < n; i++) {
+    const frame = document.createElement("iframe");
+    frame.width = w; frame.height = h;
+    frame.addEventListener("load", () => {
+      const win = frame.contentWindow;
+      win.document.documentElement.style.scrollBehavior = "auto";
+      const selector = params.get("s");
+      const target = selector ? win.document.querySelector(selector) : null;
+      const y = target
+        ? target.getBoundingClientRect().top + win.scrollY - Number(params.get("o") || 0)
+        : (params.get("y") !== null ? Number(params.get("y")) : i * h);
+      win.scrollTo(0, y);
+      win.dispatchEvent(new Event("scroll"));
+      if (params.get("open") !== null) win.document.querySelectorAll(".video-card")[Number(params.get("open"))].click();
+    });
+    frame.src = params.get("p") || "/";
+    document.body.append(frame);
+  }
+</script>
