@@ -566,5 +566,31 @@ button { font: inherit; color: inherit; }
   });
 })();
 </script>
+<script>
+// Dificulta salvar e capturar os vídeos. Não impede gravação de tela nem câmera externa.
+(() => {
+  const css = document.createElement("style");
+  css.textContent = "video,img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}html.guard video{visibility:hidden!important}";
+  document.head.append(css);
+  const lock = (v) => { v.setAttribute("controlslist", "nodownload noremoteplayback"); v.disablePictureInPicture = true; v.disableRemotePlayback = true; v.draggable = false; };
+  const lockAll = () => document.querySelectorAll("video").forEach(lock);
+  lockAll();
+  new MutationObserver(lockAll).observe(document.body, { childList: true, subtree: true });
+  document.addEventListener("contextmenu", (e) => { if (e.target.closest("video, button, .lightbox, .reel, .service__media, .col__media")) e.preventDefault(); });
+  document.addEventListener("dragstart", (e) => { if (e.target.closest("video, img")) e.preventDefault(); });
+  const root = document.documentElement; let t;
+  const hide = (ms) => { root.classList.add("guard"); clearTimeout(t); if (ms) t = setTimeout(() => { if (document.hasFocus()) root.classList.remove("guard"); }, ms); };
+  const show = () => root.classList.remove("guard");
+  window.addEventListener("blur", () => hide());
+  window.addEventListener("focus", show);
+  document.addEventListener("visibilitychange", () => (document.hidden ? hide() : show()));
+  document.addEventListener("keydown", (e) => {
+    const mod = e.ctrlKey || e.metaKey, k = (e.key || "").toLowerCase();
+    if (e.key === "PrintScreen" || (e.metaKey && e.shiftKey && ["Digit3", "Digit4", "Digit5"].includes(e.code)) || (mod && k === "p")) hide(1500);
+    if (mod && k === "s") { e.preventDefault(); hide(1500); }
+  }, true);
+  document.addEventListener("keyup", (e) => { if (e.key === "PrintScreen") { hide(1500); try { navigator.clipboard.writeText(""); } catch {} } });
+})();
+</script>
 </body>
 </html>
