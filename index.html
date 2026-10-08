@@ -829,6 +829,7 @@ h1, h2, h3, p, figure { margin: 0; }
   const cards = [...document.querySelectorAll(".video-card")];
   const lightbox = document.getElementById("lightbox");
   const lbVideo = lightbox.querySelector(".lightbox__video");
+  lbVideo.addEventListener("error", () => { const f = lbVideo.dataset.fallback; if (f && lbVideo.getAttribute("src")) { lbVideo.dataset.fallback = ""; lbVideo.src = f; lbVideo.play().catch(() => {}); } });
   const lbTitle = lightbox.querySelector("[data-lb-title]");
   const lbCount = lightbox.querySelector("[data-lb-count]");
   const closeBtn = lightbox.querySelector(".lightbox__close");
@@ -841,7 +842,7 @@ h1, h2, h3, p, figure { margin: 0; }
     const card = cards[current];
     const source = card.querySelector("video");
     lbVideo.poster = source.poster;
-    lbVideo.src = source.dataset.full || source.dataset.src;
+    lbVideo.src = source.dataset.full || source.dataset.src; lbVideo.dataset.fallback = source.dataset.full ? source.dataset.src : "";
     lbVideo.muted = false;
     lbTitle.textContent = card.querySelector(".video-card__title").textContent;
     lbCount.textContent = `${pad(current + 1)} / ${pad(cards.length)}`;

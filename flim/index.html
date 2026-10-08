@@ -500,6 +500,7 @@ button { font: inherit; color: inherit; }
   const cards = [...document.querySelectorAll(".reel-card")];
   const lightbox = document.getElementById("lightbox");
   const lbVideo = lightbox.querySelector(".lightbox__video");
+  lbVideo.addEventListener("error", () => { const f = lbVideo.dataset.fallback; if (f && lbVideo.getAttribute("src")) { lbVideo.dataset.fallback = ""; lbVideo.src = f; lbVideo.play().catch(() => {}); } });
   const lbTitle = lightbox.querySelector("[data-lb-title]");
   const lbCount = lightbox.querySelector("[data-lb-count]");
   const closeBtn = lightbox.querySelector(".lightbox__close");
@@ -508,7 +509,7 @@ button { font: inherit; color: inherit; }
   function show(index) {
     current = (index + cards.length) % cards.length;
     const card = cards[current]; const source = card.querySelector("video");
-    lbVideo.poster = source.poster; lbVideo.src = source.dataset.full || source.dataset.src; lbVideo.muted = false;
+    lbVideo.poster = source.poster; lbVideo.src = source.dataset.full || source.dataset.src; lbVideo.dataset.fallback = source.dataset.full ? source.dataset.src : ""; lbVideo.muted = false;
     lbTitle.textContent = card.dataset.title + " · " + card.dataset.client;
     lbCount.textContent = `${pad(current + 1)} / ${pad(cards.length)}`;
     lbVideo.play().catch(() => {});
