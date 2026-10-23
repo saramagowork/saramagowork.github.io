@@ -269,6 +269,12 @@
   align-items: center;
 }
 
+/* Sem isto, o conteúdo define o mínimo e o grid passa da tela em 320px. */
+.hero__copy,
+.hero__reels {
+  min-width: 0;
+}
+
 @media (min-width: 900px) {
   .hero__inner { grid-template-columns: 1.05fr 1fr; }
 }
@@ -282,11 +288,13 @@
   font-family: var(--font-display);
   font-variation-settings: "wdth" 120, "wght" 900;
   font-weight: 900;
-  font-size: clamp(40px, 7vw, 72px);
+  /* O mínimo é o tamanho em que "Saramago" ainda cabe na goteira de 320px. */
+  font-size: clamp(34px, 7.5vw, 72px);
   line-height: 0.92;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   text-wrap: balance;
+  overflow-wrap: break-word;
   color: var(--ink);
   margin: 0 0 var(--space-5);
 }
@@ -400,6 +408,18 @@
   gap: var(--space-5);
   flex-wrap: wrap;
   margin-bottom: var(--space-6);
+}
+
+/* Um item de flex não encolhe abaixo do min-content: sem isto, um título
+   display-m longo empurra a seção para fora da tela em 320px. */
+.section-head > div,
+.cta__text {
+  min-width: 0;
+}
+
+.section-head h2,
+.cta__title {
+  overflow-wrap: break-word;
 }
 
 .section-head__rule {
