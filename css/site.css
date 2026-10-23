@@ -878,29 +878,9 @@ video {
   -webkit-user-drag: none;
 }
 
-/* Marca d'água: o lockup como está, só menor e mais apagado — o sistema não admite
-   sombra nem contorno no logotipo, então a legibilidade vem da opacidade.
-   Fica no alto à direita, longe das legendas queimadas no vídeo e da barra. */
-.player__marca {
-  position: absolute;
-  /* Centrada e logo acima da barra de controles, que ocupa os 56px de baixo. */
-  bottom: calc(56px + var(--space-3));
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  width: 92px;
-  height: auto;
-  /* O PNG transparente, sem nada atrás: em cena clara ele fica mais apagado,
-     que é o preço de não pôr box nem sombra no logotipo. */
-  opacity: 0.7;
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-@media (max-width: 480px) {
-  .player__marca { width: 72px; }
-}
+/* A marca d'água não é mais desenhada aqui: ela está queimada dentro dos arquivos,
+   a 26% da altura, o que vale também para quem baixar o vídeo. Duas marcas, uma do
+   CSS e outra do arquivo, apareceriam em alturas diferentes. */
 
 .player__tap {
   position: absolute;
