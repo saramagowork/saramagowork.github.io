@@ -434,6 +434,56 @@
   margin: 0;
 }
 
+/* ---------- Hub de links ---------- */
+
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 56px;
+  padding: var(--space-4);
+  background: var(--surface-100);
+  border: var(--stroke-bold) solid var(--line);
+  text-decoration: none;
+  transition: border-color 120ms linear;
+}
+
+.link-card:hover {
+  border-color: var(--brand-yellow);
+}
+
+.link-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.link-card__text .h3 {
+  display: block;
+  color: var(--ink);
+}
+
+.link-card__text .body-s {
+  display: block;
+  color: var(--ink-muted);
+}
+
+.link-card__dest {
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
 /* ---------- Grade de vídeos ---------- */
 
 .video-grid {
