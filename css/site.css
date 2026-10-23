@@ -828,6 +828,30 @@ video {
   -webkit-user-drag: none;
 }
 
+/* Marca d'água: o lockup como está, só menor e mais apagado — o sistema não admite
+   sombra nem contorno no logotipo, então a legibilidade vem da opacidade.
+   Fica no alto à direita, longe das legendas queimadas no vídeo e da barra. */
+.player__marca {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+  box-sizing: content-box;
+  width: 92px;
+  height: auto;
+  padding: 6px var(--space-2);
+  /* O mesmo véu dos chips: em cena clara o amarelo sumiria, e o logotipo não leva sombra. */
+  background: var(--scrim);
+  opacity: 0.8;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (max-width: 480px) {
+  .player__marca { width: 72px; }
+}
+
 .player__tap {
   position: absolute;
   inset: 0 0 56px;
