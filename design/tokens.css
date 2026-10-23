@@ -50,6 +50,14 @@
   --stroke-bold: 2px;
   --stroke-mark: 4px;
   --stroke-slab: 8px;
+
+  /* Movimento — sai do componente LogoMotion: revelar por varredura, pontuar com o vermelho.
+     Em React os mesmos valores vêm de SaramagoWork.MOVIMENTO. */
+  --motion-wipe: 520ms;
+  --motion-pop: 260ms;
+  --motion-fast: 140ms;
+  --ease-wipe: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @media (prefers-color-scheme: light) {

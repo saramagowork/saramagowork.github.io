@@ -23,6 +23,7 @@
   <div class="wrap nav__inner">
     <a class="nav__brand" href="#topo" aria-label="Saramago Work, topo da página">
       <img src="design/assets/saramago-work-lockup-amarelo.png" width="720" height="146" alt="Saramago Work">
+      <span class="nav__ponto" aria-hidden="true"></span>
     </a>
     <nav aria-label="Seções">
       <ul class="nav__links">
@@ -386,6 +387,71 @@
   document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Movimento, na mesma linguagem do componente LogoMotion: revelar por varredura.
+  // Os blocos só ficam escondidos depois que este script assume: sem JS, a página já está pronta.
+  // Movimento, na linguagem do componente LogoMotion: revelar por varredura, pontuar com
+  // o vermelho. Os valores são os mesmos tokens --motion-* e --ease-* de tokens.css.
+  //
+  // Tudo é animado por cima do estado final, com fill "none": o CSS já deixa a página
+  // pronta, então nada some se o script falhar, se a aba estiver em segundo plano ou se
+  // a pessoa pedir menos movimento. Animação aqui é acréscimo, nunca condição.
+  const MOVIMENTO = {
+    varredura: 520,
+    pop: 260,
+    easeVarredura: "cubic-bezier(0.16, 1, 0.3, 1)",
+    easePop: "cubic-bezier(0.34, 1.56, 0.64, 1)"
+  };
+  const podeAnimar = !reduceMotion.matches && typeof Element.prototype.animate === "function";
+
+  function entrarMarca() {
+    const logo = document.querySelector(".nav__brand img");
+    const ponto = document.querySelector(".nav__ponto");
+    if (logo) {
+      logo.animate(
+        [{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }],
+        { duration: MOVIMENTO.varredura, easing: MOVIMENTO.easeVarredura, fill: "none" }
+      );
+    }
+    if (ponto) {
+      ponto.animate(
+        [{ transform: "scale(0)" }, { transform: "scale(1.15)" }, { transform: "scale(1)" }],
+        { duration: MOVIMENTO.pop, delay: MOVIMENTO.varredura - 60, easing: MOVIMENTO.easePop, fill: "none" }
+      );
+    }
+  }
+
+  // As barras do motivo crescem da esquerda, uma atrás da outra, como o logotipo escalona.
+  function entrarBarras(barrule) {
+    const barras = barrule.querySelectorAll("span");
+    barras.forEach((barra, i) => {
+      barra.animate(
+        [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }],
+        {
+          duration: MOVIMENTO.varredura,
+          delay: i * 80,
+          easing: MOVIMENTO.easeVarredura,
+          fill: "none",
+          composite: "replace"
+        }
+      );
+      barra.style.transformOrigin = "left center";
+    });
+  }
+
+  if (podeAnimar) {
+    entrarMarca();
+    if ("IntersectionObserver" in window) {
+      const observador = new IntersectionObserver((entries) => {
+        for (const entrada of entries) {
+          if (!entrada.isIntersecting) continue;
+          entrarBarras(entrada.target);
+          observador.unobserve(entrada.target);
+        }
+      }, { threshold: 0.3 });
+      document.querySelectorAll(".barrule").forEach((el) => observador.observe(el));
+    }
+  }
 
   // O caminho dos arquivos fica aqui, e não no HTML: quem ler a página não encontra a lista.
   // Isso só dificulta — qualquer pessoa ainda vê o endereço na aba de rede do navegador.

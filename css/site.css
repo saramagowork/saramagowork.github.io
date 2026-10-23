@@ -101,10 +101,36 @@
   line-height: 0;
 }
 
+.nav__brand {
+  position: relative;
+}
+
 .nav__brand img {
   width: 200px;
   max-width: 100%;
   height: auto;
+}
+
+/* ---------- Movimento ----------
+   Deriva do componente LogoMotion: revelar por varredura, pontuar com o vermelho.
+
+   Regra que vale para todo o site: nada aqui esconde conteúdo. O estado final é o CSS,
+   e o movimento é aplicado por cima pelo script, com fill none. Se o script não rodar,
+   se a aba estiver em segundo plano ou se a pessoa pedir menos movimento, a página
+   simplesmente aparece pronta — nunca recortada no meio de uma animação. */
+
+/* O ponto cobre o ponto do arquivo: mesma cor, mesmo tamanho, mesma posição medida no
+   PNG (centro em 98% da largura, 29 px de 720). Fica visível por padrão. */
+.nav__ponto {
+  position: absolute;
+  left: 95.98%;
+  top: 0;
+  width: 4.03%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-pill);
+  background: var(--brand-red);
+  transform-origin: center;
+  pointer-events: none;
 }
 
 .nav__links {
