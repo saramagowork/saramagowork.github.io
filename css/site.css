@@ -836,13 +836,11 @@ video {
   top: var(--space-3);
   right: var(--space-3);
   z-index: 2;
-  box-sizing: content-box;
   width: 92px;
   height: auto;
-  padding: 6px var(--space-2);
-  /* O mesmo véu dos chips: em cena clara o amarelo sumiria, e o logotipo não leva sombra. */
-  background: var(--scrim);
-  opacity: 0.8;
+  /* O PNG transparente, sem nada atrás: em cena clara ele fica mais apagado,
+     que é o preço de não pôr box nem sombra no logotipo. */
+  opacity: 0.7;
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
