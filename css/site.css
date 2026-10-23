@@ -804,8 +804,129 @@
   max-height: 74vh;
   aspect-ratio: 9 / 16;
   background: var(--surface-100);
-  border: var(--stroke-bold) solid var(--brand-yellow);
   display: block;
+}
+
+/* ---------- Player próprio ----------
+   Os controles nativos trazem o menu de três pontos com "Baixar vídeo"; estes não.
+   Dificultar não é impedir: o endereço do arquivo continua visível na aba de rede. */
+
+.player {
+  position: relative;
+  border: var(--stroke-bold) solid var(--brand-yellow);
+  background: var(--surface-100);
+  overflow: hidden;
+}
+
+/* Nenhum vídeo recebe o toque direto: quem recebe é o botão por cima,
+   o que também tira o menu de contexto do próprio elemento. */
+video {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+}
+
+.player__tap {
+  position: absolute;
+  inset: 0 0 56px;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.player__bar {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 56px;
+  padding-inline: var(--space-3);
+  background: var(--scrim);
+}
+
+.player__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  cursor: pointer;
+}
+
+.player__btn:hover {
+  color: var(--brand-yellow);
+}
+
+.player__btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.player__time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  white-space: nowrap;
+  flex: none;
+}
+
+.player__seek {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 20px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.player__seek::-webkit-slider-runnable-track {
+  height: var(--stroke-mark);
+  background: var(--line-strong);
+}
+
+.player__seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 16px;
+  margin-top: -6px;
+  background: var(--brand-yellow);
+  border: 0;
+  border-radius: var(--radius-none);
+}
+
+.player__seek::-moz-range-track {
+  height: var(--stroke-mark);
+  background: var(--line-strong);
+}
+
+.player__seek::-moz-range-thumb {
+  width: 10px;
+  height: 16px;
+  background: var(--brand-yellow);
+  border: 0;
+  border-radius: var(--radius-none);
+}
+
+.player__seek:focus-visible {
+  outline: var(--stroke-bold) solid var(--focus);
+  outline-offset: 2px;
 }
 
 .lightbox__caption {
