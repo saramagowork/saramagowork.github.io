@@ -1,0 +1,235 @@
+/* Saramago Work — tokens do design system.
+   Fonte de verdade: https://claude.ai/artifact/R2MMD2V5zCAeoeYwiZTBuM (project/tokens.json).
+   Tema Escuro é o padrão; o Claro entra por prefers-color-scheme ou por data-theme="light". */
+
+:root {
+  color-scheme: dark;
+
+  /* Cor — tema Escuro */
+  --surface-000: #0a0a0a;
+  --surface-100: #141414;
+  --surface-200: #1f1f1e;
+  --ink: #f5f5f0;
+  --ink-muted: #a3a39b;
+  --line: #2e2e2b;
+  --line-strong: #6e6e66;
+  --focus: #ffea00;
+  --danger: #ff4d3d;
+  --success: #35d6c4;
+  --scrim: rgba(10, 10, 10, 0.78);
+
+  /* Cor — fixa nos dois temas */
+  --brand-yellow: #ffea00;
+  --brand-acid: #fff400;
+  --brand-red: #ff0000;
+  --on-brand: #0a0a0a;
+
+  /* Tipografia */
+  --font-display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Instrument Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* Espaçamento — escala de 4px */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* Raio — o sistema é quadrado */
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-pill: 999px;
+
+  /* Fio e barra */
+  --stroke-hair: 1px;
+  --stroke-bold: 2px;
+  --stroke-mark: 4px;
+  --stroke-slab: 8px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --surface-000: #ffffff;
+    --surface-100: #f4f4f2;
+    --surface-200: #e8e8e4;
+    --ink: #0a0a0a;
+    --ink-muted: #5a5a52;
+    --line: #d6d6d0;
+    --line-strong: #8a8a82;
+    --focus: #141414;
+    --danger: #c41200;
+    --success: #00756b;
+    --scrim: rgba(10, 10, 10, 0.62);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --surface-000: #ffffff;
+  --surface-100: #f4f4f2;
+  --surface-200: #e8e8e4;
+  --ink: #0a0a0a;
+  --ink-muted: #5a5a52;
+  --line: #d6d6d0;
+  --line-strong: #8a8a82;
+  --focus: #141414;
+  --danger: #c41200;
+  --success: #00756b;
+  --scrim: rgba(10, 10, 10, 0.62);
+}
+
+/* Estilos de texto — use as classes ou copie as declarações */
+
+.display-xl,
+.display-l,
+.display-m,
+.h1,
+.h2,
+.h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.display-xl,
+.display-l,
+.display-m {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.display-xl {
+  font-size: 96px;
+  line-height: 84px;
+  letter-spacing: -0.03em;
+  font-variation-settings: "wdth" 122, "wght" 900;
+}
+
+.display-l {
+  font-size: 64px;
+  line-height: 58px;
+  letter-spacing: -0.025em;
+  font-variation-settings: "wdth" 120, "wght" 900;
+}
+
+.display-m {
+  font-size: 44px;
+  line-height: 42px;
+  letter-spacing: -0.02em;
+  font-variation-settings: "wdth" 118, "wght" 900;
+}
+
+.h1 {
+  font-size: 32px;
+  line-height: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  font-size: 24px;
+  line-height: 27px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.h3 {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.body-l,
+.body,
+.body-strong,
+.body-s {
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+.body-l {
+  font-size: 18px;
+  line-height: 29px;
+  font-weight: 400;
+}
+
+.body {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.body-strong {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.body-s {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+.label,
+.data,
+.micro {
+  font-family: var(--font-mono);
+  margin: 0;
+}
+
+.label {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.data {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.micro {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Base da página */
+
+body {
+  margin: 0;
+  background: var(--surface-000);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: var(--stroke-bold) solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
